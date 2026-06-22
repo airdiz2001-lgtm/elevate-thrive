@@ -3,13 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/problem")({
   head: () => ({
     meta: [
-      { title: "The Honest Truth — Valence" },
+      { title: "The Honest Truth — OccupiaCare" },
       {
         name: "description",
         content:
           "Why most healthcare and senior-care marketing programs leak occupancy — and what the industry reality looks like.",
       },
-      { property: "og:title", content: "The Honest Truth — Valence" },
+      { property: "og:title", content: "The Honest Truth — OccupiaCare" },
       {
         property: "og:description",
         content: "The industry reality behind fragmented intake and stalled growth.",

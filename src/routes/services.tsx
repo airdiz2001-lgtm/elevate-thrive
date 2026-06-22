@@ -4,13 +4,13 @@ import { services } from "@/lib/site-data";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Valence" },
+      { title: "Services — OccupiaCare" },
       {
         name: "description",
         content:
           "Paid acquisition, clinical SEO, intake infrastructure, and AI command systems for healthcare operators.",
       },
-      { property: "og:title", content: "Services — Valence" },
+      { property: "og:title", content: "Services — OccupiaCare" },
       {
         property: "og:description",
         content: "Four integrated services that work as one census engine.",

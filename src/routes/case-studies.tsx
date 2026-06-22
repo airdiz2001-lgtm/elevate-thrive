@@ -4,13 +4,13 @@ import { caseStudies } from "@/lib/site-data";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Valence" },
+      { title: "Case Studies — OccupiaCare" },
       {
         name: "description",
         content:
           "Case files from healthcare and senior-care operators we've worked with.",
       },
-      { property: "og:title", content: "Case Studies — Valence" },
+      { property: "og:title", content: "Case Studies — OccupiaCare" },
       {
         property: "og:description",
         content: "Outcomes, methods, and measurable impact across operator partners.",
