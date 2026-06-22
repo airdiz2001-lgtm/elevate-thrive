@@ -83,7 +83,7 @@ function CaseDetail() {
 
       <section className="bg-ink py-16 text-paper">
         <div className="container-page grid grid-cols-1 gap-10 md:grid-cols-3">
-          {cs.metrics.map((m) => (
+          {cs.metrics.map((m: { label: string; value: string }) => (
             <div key={m.label}>
               <div className="text-5xl font-extrabold tracking-tighter md:text-6xl">
                 {m.value}
@@ -115,7 +115,7 @@ function CaseDetail() {
             </span>
           </div>
           <ul className="space-y-6 md:col-span-9">
-            {cs.approach.map((a, i) => (
+            {cs.approach.map((a: string, i: number) => (
               <li key={a} className="flex gap-6 border-t border-rule pt-6 first:border-t-0 first:pt-0">
                 <span className="mono shrink-0 text-[10px] uppercase tracking-widest text-clinical">
                   {String(i + 1).padStart(2, "0")}

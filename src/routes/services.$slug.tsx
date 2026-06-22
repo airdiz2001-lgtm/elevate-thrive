@@ -77,7 +77,7 @@ function ServiceDetail() {
               How it works
             </span>
             <ul className="space-y-6">
-              {s.details.map((d, i) => (
+              {s.details.map((d: string, i: number) => (
                 <li key={d} className="flex gap-6 border-t border-rule pt-6 first:border-t-0 first:pt-0">
                   <span className="mono shrink-0 text-[10px] uppercase tracking-widest text-clinical">
                     {String(i + 1).padStart(2, "0")}
@@ -92,7 +92,7 @@ function ServiceDetail() {
               Deliverables
             </span>
             <ul className="space-y-3">
-              {s.deliverables.map((d) => (
+              {s.deliverables.map((d: string) => (
                 <li key={d} className="flex items-center gap-3 border-b border-rule pb-3 text-sm text-ink/75">
                   <span className="size-1.5 rounded-full bg-clinical" />
                   {d}
