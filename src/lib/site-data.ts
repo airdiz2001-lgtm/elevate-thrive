@@ -6,8 +6,7 @@ import indMemory from "@/assets/industry-memory.jpg";
 import indBehavioral from "@/assets/industry-behavioral.jpg";
 import indPostAcute from "@/assets/industry-postacute.jpg";
 
-/* ───────────────────────── Brand ───────────────────────── */
-
+/* Brand */
 export const brand = {
   name: "OccupiaCare",
   tagline: "Occupancy growth infrastructure for senior care.",
@@ -16,17 +15,16 @@ export const brand = {
   hq: "Nashville, TN",
 };
 
-/* ───────────────────────── Hero ───────────────────────── */
-
+/* Hero */
 export const heroMetrics = [
   { value: "+38%", label: "Avg. Occupancy Lift" },
   { value: "24/7", label: "AI-Qualified Inquiries" },
   { value: "6×", label: "Faster Tour Booking" },
-  { value: "100%", label: "HIPAA-Conscious Stack" },
+  { value: "90%+", label: "Lead Response Rate" },
+  { value: "100%", label: "CRM Visibility" },
 ];
 
-/* ───────────────────────── Who we work with ───────────────────────── */
-
+/* Operator chips */
 export const operatorTypes = [
   "Nursing Homes",
   "Assisted Living",
@@ -38,429 +36,375 @@ export const operatorTypes = [
   "Personal Care Facilities",
 ];
 
-/* ───────────────────────── Trust ───────────────────────── */
-
-export const trustPillars = [
-  {
-    code: "T/01",
-    name: "HIPAA-Conscious Marketing",
-    detail: "Every campaign, form, and integration audited for PHI exposure.",
-  },
-  {
-    code: "T/02",
-    name: "Trusted Growth Partner",
-    detail: "Long-term operator partnerships, not one-off retainer churn.",
-  },
-  {
-    code: "T/03",
-    name: "Reputation Systems",
-    detail: "Structured review generation and monitoring across every facility.",
-  },
+/* ───────── PROBLEM — Homepage (compact, 5 cards) ───────── */
+export const coreProblemsHome = [
+  { icon: "🌐", title: "Outdated Websites", detail: "Slow, low-trust, weak conversion." },
+  { icon: "🔍", title: "Poor Google Visibility", detail: "Competitors own the local map pack." },
+  { icon: "⭐", title: "Weak Online Reviews", detail: "Limited social proof hurts admissions." },
+  { icon: "📞", title: "No Lead Follow-Up", detail: "Family inquiries left unanswered." },
+  { icon: "⚙️", title: "No CRM or Automation", detail: "Scattered notes, manual workflows." },
 ];
 
-export const trustedBy = [
-  "Sunrise Care",
-  "MapleLeaf Living",
-  "Harbor Senior",
-  "Evergreen Rehab",
-  "Silver Oaks",
-  "Heritage Memory",
-  "Willow Brook",
-  "BrightStar Care",
+/* Problem page — full 8 challenges */
+export const coreGrowthBarriers = [
+  { icon: "🌐", title: "Outdated Websites", points: ["Slow loading speeds", "Poor user experience", "Low trust and conversion rates"] },
+  { icon: "🔍", title: "Poor Google Visibility", points: ["Not appearing in local searches", "Competitors dominating maps"] },
+  { icon: "⭐", title: "Weak Online Reviews", points: ["Limited social proof", "Negative or outdated reputation"] },
+  { icon: "📞", title: "No Lead Follow-Up", points: ["Family inquiries left unanswered", "Lost opportunities from delays"] },
+  { icon: "🗂️", title: "No CRM System", points: ["Inquiries scattered across tools", "No centralized admissions"] },
+  { icon: "⏱️", title: "Slow Inquiry Response", points: ["Families decide quickly", "Delays lose move-ins"] },
+  { icon: "🤖", title: "Lack of Automation", points: ["Manual reminders and follow-ups", "Increased staff workload"] },
+  { icon: "🎨", title: "Inconsistent Branding", points: ["Mixed messaging across channels", "Reduced family trust"] },
 ];
 
-/* ───────────────────────── Problem ───────────────────────── */
-
-export const coreProblems = [
-  "Outdated websites that fail to convert families",
-  "Poor Google visibility and weak local rankings",
-  "Thin online reviews and low trust signals",
-  "No structured follow-up after the first inquiry",
-  "No CRM or unified lead tracking",
-  "Slow inquiry response times",
-  "Manual workflows across admissions",
-];
-
-export const industryRealities = [
-  { group: "Revenue", items: ["Empty beds and revenue loss", "Inconsistent month-to-month occupancy"] },
-  { group: "Visibility", items: ["Poor local search visibility", "Weak online reputation systems"] },
-  { group: "Systems", items: ["No automation or CRM", "Lost leads due to slow follow-up"] },
-  { group: "Conversion", items: ["Poor inquiry-to-tour conversion", "Inefficient admissions workflows"] },
-  { group: "Operations", items: ["Staff overload and manual processes", "No analytics or attribution"] },
-];
-
-/* ───────────────────────── Services ───────────────────────── */
-
-export type Service = {
-  slug: string;
-  code: string;
-  name: string;
-  tagline: string;
-  summary: string;
-  details: string[];
-  deliverables: string[];
-};
-
-export const services: Service[] = [
+/* Industry Reality — 5 categories with icons */
+export const industryRealityGroups = [
   {
-    slug: "occupancy-growth-campaigns",
-    code: "S/01",
-    name: "Occupancy Growth Campaigns",
-    tagline: "Google + Meta media engineered for qualified family inquiries.",
-    summary:
-      "Geo-targeted paid acquisition built around bed availability, payer mix, and acuity — measured on move-ins, not clicks.",
-    details: [
-      "Facility-level campaigns aligned to service radius and current census gaps.",
-      "Creative tested against compliance guardrails for senior-care audiences.",
-      "Bids tuned weekly against downstream tour and move-in conversion.",
-    ],
-    deliverables: [
-      "Cross-channel media plan",
-      "Creative + landing system",
-      "Weekly performance review",
-      "Move-in attribution dashboard",
-    ],
+    group: "Revenue & Occupancy",
+    icon: "🛏️",
+    items: ["Empty Beds", "Low Occupancy", "Lost Leads", "Poor Conversion Rates", "Low-Quality Inquiries"],
   },
   {
-    slug: "admissions-funnel-systems",
-    code: "S/02",
-    name: "Admissions Funnel Systems",
-    tagline: "Landing pages, capture, and routing that close the loop.",
-    summary:
-      "Conversion-tested landing systems plus inquiry routing rules tied to acuity and bed availability across every facility.",
-    details: [
-      "Facility-specific landing pages with tour booking and inquiry forms.",
-      "Lead routing scored by payer mix, urgency, and care level.",
-      "Tight integration with your CRM, dialer, and scheduling tools.",
-    ],
-    deliverables: [
-      "Landing page system",
-      "Routing + scoring rules",
-      "CRM integration",
-      "Stakeholder dashboards",
-    ],
+    group: "Marketing & Visibility",
+    icon: "📣",
+    items: ["Poor Online Visibility", "Weak Google Rankings", "Weak Social Presence", "Inconsistent Branding", "Weak Reviews"],
   },
   {
-    slug: "senior-care-seo",
-    code: "S/03",
-    name: "Senior Care SEO",
-    tagline: "Semantic authority across the queries families search under pressure.",
-    summary:
-      "Technical, content, and local SEO mapped to the decision journey families and discharge planners actually take.",
-    details: [
-      "Programmatic location pages for multi-facility operators.",
-      "Topical authority covering condition, payer, and family-journey queries.",
-      "Editorial pipeline reviewed by clinicians for accuracy and tone.",
-    ],
-    deliverables: [
-      "Authority + technical audit",
-      "Programmatic location pages",
-      "Editorial pipeline",
-      "Quarterly SERP review",
-    ],
+    group: "Website & Digital Experience",
+    icon: "💻",
+    items: ["Outdated Websites", "Poor Family Trust", "No Lead Tracking", "No Analytics"],
   },
   {
-    slug: "ai-command-system",
-    code: "S/04",
-    name: "AI Command System",
-    tagline: "Voice and chat agents for round-the-clock admissions intake.",
-    summary:
-      "AI agents that qualify, triage, and book tours 24/7 — supervised by your admissions team, not replacing them.",
-    details: [
-      "Voice + chat agents with care guardrails and clean human escalation paths.",
-      "Continuous QA against recorded calls and chat transcripts.",
-      "Live dashboards on response time, conversion, and triage accuracy.",
-    ],
-    deliverables: [
-      "Agent design + prompts",
-      "Escalation + QA loop",
-      "Live operations dashboard",
-      "Monthly model review",
-    ],
+    group: "Admissions & Sales Process",
+    icon: "📋",
+    items: ["Slow Inquiry Response", "Inefficient Admissions", "No CRM Systems", "No Automation"],
+  },
+  {
+    group: "Operational",
+    icon: "🧑‍⚕️",
+    items: ["Manual Operations", "Staff Overwhelm"],
   },
 ];
 
-// Extended service catalog (homepage chip grid)
-export const extendedServices = [
-  "Occupancy Growth Campaigns",
-  "Admissions Funnel Systems",
-  "Local Visibility Optimization",
-  "Family Trust Branding",
-  "Senior Care SEO",
-  "Inquiry Automation Systems",
-  "Reputation & Review Management",
-  "Tour Booking Funnels",
-  "Family-Facing Content Systems",
-  "Social Media for Senior Care",
+/* ───────── SOLUTION ───────── */
+export const solutionMetrics = [
+  { value: "+38%", label: "Occupancy Lift" },
+  { value: "24/7", label: "AI Inquiry Handling" },
+  { value: "6×", label: "Faster Tour Booking" },
+  { value: "90%+", label: "Lead Response Rate" },
+  { value: "100%", label: "CRM Visibility" },
 ];
 
-/* ───────────────────────── Outcomes ───────────────────────── */
-
-export const outcomes = [
-  { code: "O/01", name: "More Resident Inquiries", detail: "Qualified family inquiries across every facility, every week." },
-  { code: "O/02", name: "Higher Occupancy", detail: "Stable, predictable lift in average daily census." },
-  { code: "O/03", name: "Better Online Reviews", detail: "Structured review generation across Google and Caring.com." },
-  { code: "O/04", name: "Faster Lead Response", detail: "First-touch response measured in seconds, not hours." },
-  { code: "O/05", name: "Increased Family Trust", detail: "Reputation, content, and tour systems that close families." },
-  { code: "O/06", name: "Improved Local Rankings", detail: "Top-3 local pack presence in your priority service areas." },
+export const solutionGrid = [
+  { icon: "🎯", title: "Occupancy Growth Campaigns", detail: "Meta + Google Ads engineered to fill beds with qualified families." },
+  { icon: "📍", title: "Local Visibility Optimization", detail: "Dominate Google Maps and \"near me\" searches in your area." },
+  { icon: "🤖", title: "Resident Inquiry Automation", detail: "Instant SMS, email, and call follow-ups within seconds." },
+  { icon: "⭐", title: "Reputation & Reviews", detail: "Systematic 5-star review generation across platforms." },
+  { icon: "📅", title: "Tour Booking Funnels", detail: "Self-serve scheduling booked directly into calendars." },
+  { icon: "🏥", title: "Senior Care SEO", detail: "Rank for high-intent healthcare and care-related searches." },
+  { icon: "🛡️", title: "Family Trust Branding", detail: "Premium identity that builds instant family confidence." },
+  { icon: "📄", title: "Family-Facing Content", detail: "Educational content that increases trust before contact." },
+  { icon: "📱", title: "Social Media for Senior Care", detail: "Consistent, compliant presence reinforcing credibility." },
+  { icon: "🔄", title: "Admissions Funnel Systems", detail: "End-to-end journey from first click to move-in." },
 ];
 
-/* ───────────────────────── Funnel ───────────────────────── */
+export const miniFunnel = ["Ads", "Website", "Inquiry", "AI Follow-Up", "Tour", "Admission"];
 
-export const funnelStages = [
-  "Ads & SEO",
-  "Landing Pages",
-  "Inquiry Capture",
-  "Automated Follow-Up",
-  "Tour Booking",
-  "Admissions",
-];
-
-/* ───────────────────────── AI & Automation ───────────────────────── */
-
-export const automationCapabilities = [
+/* AI Layer */
+export const aiInfrastructure = [
   "AI Lead Qualification",
   "AI Voice Agents",
-  "AI Reception Systems",
-  "AI Appointment Booking",
-  "AI Follow-Up Systems",
-  "CRM Automation",
-  "Resident Inquiry Pipelines",
-  "Automated SMS & Email",
-  "Admissions Workflow Automation",
   "AI Chatbots",
-  "Analytics Dashboards",
-  "Reputation Monitoring",
-  "Review Generation Systems",
+  "AI Scheduling Agents",
+  "AI Follow-Up Engine",
+  "AI Analytics Dashboard",
+  "AI Review Engine",
+  "AI CRM Automation",
+  "AI Workflow Automation",
+  "AI Admissions Assistant",
 ];
 
 export const agents = [
-  { code: "A/01", name: "Inquiry Agent", detail: "Greets every family within 5 seconds, day or night." },
-  { code: "A/02", name: "Qualification Agent", detail: "Scores acuity, payer, and timing against your bed availability." },
-  { code: "A/03", name: "Follow-Up Agent", detail: "Multi-touch nurture across SMS, email, and voice." },
-  { code: "A/04", name: "Scheduling Agent", detail: "Books tours directly into your admissions calendar." },
-  { code: "A/05", name: "Conversational AI Agent", detail: "Handles complex family questions with clinical guardrails." },
-  { code: "A/06", name: "Admissions Assistant", detail: "Preps your team with a full intake brief before every tour." },
+  { code: "A/01", name: "Inquiry Agent", detail: "Captures every inquiry, converts visitors into leads.", impact: "+72% engagement lift" },
+  { code: "A/02", name: "Qualification Agent", detail: "Scores acuity, payer, and timing in real time.", impact: "+58% qualified tours" },
+  { code: "A/03", name: "Follow-Up Agent", detail: "Multi-touch nurture across SMS, email, and voice.", impact: "−41% drop-off" },
+  { code: "A/04", name: "Scheduling Agent", detail: "Books tours directly into admissions calendars.", impact: "6× faster booking" },
+  { code: "A/05", name: "Conversational AI", detail: "Handles complex family questions with guardrails.", impact: "24/7 coverage" },
+  { code: "A/06", name: "Admissions Assistant", detail: "Preps your team with a full intake brief.", impact: "−63% prep time" },
 ];
 
-/* ───────────────────────── Dashboard ───────────────────────── */
+export const funnelFull = [
+  "Ads & SEO",
+  "Landing Pages",
+  "Inquiry Capture",
+  "AI Qualification",
+  "CRM Pipeline",
+  "Automated Follow-Up",
+  "Tour Scheduling",
+  "Admissions",
+  "Occupancy Growth",
+];
 
 export const dashboardMetrics = [
   { label: "Occupancy Rate", value: "94.2%" },
   { label: "Active Inquiries", value: "186" },
   { label: "Tracked Calls", value: "1,420" },
   { label: "Tours Booked", value: "312" },
-  { label: "Pipeline Stages", value: "8" },
+  { label: "Conversion Rate", value: "38.4%" },
   { label: "90-Day Growth", value: "+22%" },
 ];
 
-/* ───────────────────────── Ecosystem ───────────────────────── */
-
-export const ecosystemNodes = [
-  "Ads & SEO",
-  "Landing Pages",
-  "Inquiry Capture",
-  "AI Qualification",
-  "CRM",
-  "Follow-Up",
-  "Tour Scheduling",
-  "Admissions Pipeline",
-  "Occupancy Growth",
+export const infrastructureCols = [
+  { title: "Websites", items: ["Healthcare websites", "Landing pages", "Inquiry portals"] },
+  { title: "Systems", items: ["CRM integration", "Workflow automation", "Dashboards"] },
+  { title: "AI + APIs", items: ["AI integration", "API connections", "Backend automation"] },
 ];
 
-/* ───────────────────────── Infrastructure ───────────────────────── */
-
-export const infrastructure = [
-  "Custom Healthcare Websites",
-  "Landing Page Systems",
-  "CRM Integrations (HubSpot, Salesforce)",
-  "HIPAA-Conscious Architecture",
-  "Facility Dashboards",
-  "Inquiry Portals",
-  "Analytics Infrastructure",
-  "Automation Backends",
-  "Staff Workflow Systems",
-  "API Integrations",
+/* ───────── Services (still used for /services routes) ───────── */
+export type Service = {
+  slug: string; code: string; name: string; tagline: string; summary: string;
+  details: string[]; deliverables: string[];
+};
+export const services: Service[] = [
+  {
+    slug: "occupancy-growth-campaigns", code: "S/01", name: "Occupancy Growth Campaigns",
+    tagline: "Google + Meta media engineered for qualified family inquiries.",
+    summary: "Geo-targeted paid acquisition built around bed availability, payer mix, and acuity — measured on move-ins, not clicks.",
+    details: ["Facility-level campaigns aligned to current census gaps.", "Creative tested against compliance guardrails.", "Bids tuned weekly against tour and move-in conversion."],
+    deliverables: ["Cross-channel media plan", "Creative + landing system", "Weekly performance review", "Move-in attribution"],
+  },
+  {
+    slug: "admissions-funnel-systems", code: "S/02", name: "Admissions Funnel Systems",
+    tagline: "Landing pages, capture, and routing that close the loop.",
+    summary: "Conversion-tested landing systems plus inquiry routing tied to acuity and bed availability.",
+    details: ["Facility-specific landing pages with tour booking.", "Lead routing scored by payer mix and urgency.", "CRM, dialer, and scheduling integration."],
+    deliverables: ["Landing page system", "Routing rules", "CRM integration", "Dashboards"],
+  },
+  {
+    slug: "senior-care-seo", code: "S/03", name: "Senior Care SEO",
+    tagline: "Authority across queries families search under pressure.",
+    summary: "Technical, content, and local SEO mapped to the actual family decision journey.",
+    details: ["Programmatic location pages for multi-facility operators.", "Topical authority on condition and payer queries.", "Clinician-reviewed editorial pipeline."],
+    deliverables: ["Audit", "Programmatic pages", "Editorial pipeline", "Quarterly SERP review"],
+  },
+  {
+    slug: "ai-command-system", code: "S/04", name: "AI Command System",
+    tagline: "Voice and chat agents for 24/7 admissions intake.",
+    summary: "AI agents that qualify, triage, and book tours 24/7 — supervised by your admissions team.",
+    details: ["Voice + chat agents with care guardrails.", "Continuous QA against transcripts.", "Live dashboards on response time and conversion."],
+    deliverables: ["Agent design", "Escalation + QA loop", "Live dashboard", "Monthly review"],
+  },
 ];
 
-/* ───────────────────────── Case studies ───────────────────────── */
-
+/* ───────── Case studies (5 detailed) ───────── */
 export type CaseStudy = {
-  slug: string;
-  code: string;
-  client: string;
-  vertical: string;
-  headline: string;
-  summary: string;
-  hero: string;
+  slug: string; code: string; client: string; vertical: string; region: string;
+  headline: string; summary: string; hero: string;
   metrics: { label: string; value: string }[];
-  problem: string;
-  approach: string[];
-  outcome: string;
+  micro: { occBefore: string; occAfter: string; cprDelta: string; inquiryDelta: string };
+  trend: number[]; // monthly occupancy trend
+  problem: string[];
+  strategy: { title: string; items: string[] }[];
+  results: string[];
+  revenueImpact: string;
+  testimonial: { quote: string; attribution?: string };
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "meridian-assisted-living",
-    code: "CS/01",
-    client: "Meridian Assisted Living",
-    vertical: "Assisted Living · 14 facilities",
-    headline:
-      "Doubling qualified inquiries and lifting occupancy across 14 communities.",
-    summary:
-      "Unified facility websites under one authority engine and rebuilt intake routing around real-time bed availability.",
+    slug: "midwest-assisted-living", code: "CS/01",
+    client: "Midwest Assisted Living Community", vertical: "Assisted Living", region: "USA",
+    headline: "From 74% to 93% Occupancy in 8 Months",
+    summary: "A 120-bed Midwest community rebuilt its admissions pipeline and added $1.1M+ in annualized revenue.",
     hero: caseMeridian,
     metrics: [
-      { label: "Qualified Inquiries", value: "+184%" },
-      { label: "Occupancy", value: "+31%" },
-      { label: "Cost / Move-in", value: "−42%" },
+      { label: "Occupancy", value: "74% → 93%" },
+      { label: "Qualified Inquiries", value: "+231%" },
+      { label: "Tours Booked", value: "+184%" },
+      { label: "Cost / Inquiry", value: "−37%" },
     ],
-    problem:
-      "Fourteen facilities ran fourteen disconnected funnels. Paid spend overlapped with organic, intake teams routed by region rather than acuity, and reporting was reconciled in spreadsheets every Friday.",
-    approach: [
-      "Consolidated location architecture under a single authority domain with per-facility programmatic pages.",
-      "Rebuilt lead routing around real-time bed availability and payer mix.",
-      "Stood up an attribution layer that traces every move-in back to first touch.",
+    micro: { occBefore: "74%", occAfter: "93%", cprDelta: "−37%", inquiryDelta: "+231%" },
+    trend: [72, 76, 80, 84, 87, 90, 92, 93],
+    problem: [
+      "Occupancy declined from 74% to 68%",
+      "Inconsistent monthly inquiries",
+      "Website generated very few leads",
+      "No lead nurturing process",
+      "Long response times",
+      "Poor online visibility",
     ],
-    outcome:
-      "Within two quarters, qualified inquiries rose 184% and occupancy lifted 31% across the network. The intake team now operates from a single live dashboard.",
+    strategy: [
+      { title: "Paid Advertising", items: ["Meta Ads campaigns", "Google Search campaigns", "Local + competitor targeting"] },
+      { title: "Conversion Optimization", items: ["New landing pages", "Mobile-first experience", "Simplified inquiry forms", "Call tracking"] },
+      { title: "Automation", items: ["Instant SMS follow-up", "Automated email nurturing", "Lead scoring", "Appointment reminders"] },
+      { title: "Reporting", items: ["Occupancy dashboards", "Inquiry tracking", "Tour tracking", "ROI monitoring"] },
+    ],
+    results: ["Occupancy 74% → 93%", "Qualified inquiries +231%", "Tours booked +184%", "Cost per inquiry −37%", "Move-ins +41%"],
+    revenueImpact: "$1.1M+ additional annualized revenue",
+    testimonial: { quote: "OccupiaCare helped us build a predictable admissions pipeline. Instead of waiting for referrals, we now consistently generate qualified inquiries every month." },
   },
   {
-    slug: "solstice-memory-care",
-    code: "CS/02",
-    client: "Solstice Memory Care",
-    vertical: "Memory Care · Multi-state",
-    headline:
-      "24/7 AI inquiry handling that grew tour volume by 68%.",
-    summary:
-      "Voice and chat agents handle first-touch family qualification around the clock, with clinical escalation in under 90 seconds.",
+    slug: "memory-care-usa", code: "CS/02",
+    client: "Memory Care Community", vertical: "Memory Care", region: "USA",
+    headline: "+58% Monthly Move-Ins in 6 Months",
+    summary: "An 80-unit memory care facility shortened family decision cycles with education + automated nurture.",
     hero: caseSolstice,
     metrics: [
-      { label: "Tour Volume", value: "+68%" },
-      { label: "After-hours Capture", value: "+311%" },
-      { label: "First Response", value: "14 s" },
+      { label: "Occupancy", value: "71% → 92%" },
+      { label: "Monthly Inquiries", value: "+245%" },
+      { label: "Move-Ins", value: "+58%" },
+      { label: "Cost / Acquisition", value: "−32%" },
     ],
-    problem:
-      "Two-thirds of inbound family inquiries arrived after business hours and went to voicemail. Conversion was held back not by demand, but by latency.",
-    approach: [
-      "Designed bilingual voice + chat agents tuned for memory-care family conversations.",
-      "Wired the agents into the existing CRM and scheduling system with full call recording.",
-      "Stood up a weekly review loop with admissions supervisors to refine prompts.",
+    micro: { occBefore: "71%", occAfter: "92%", cprDelta: "−32%", inquiryDelta: "+245%" },
+    trend: [70, 73, 77, 82, 86, 90, 92],
+    problem: ["Low occupancy", "Few family inquiries", "Poor lead follow-up", "Weak online presence"],
+    strategy: [
+      { title: "Family-Focused Advertising", items: ["Meta + Google Search campaigns", "Caregiver-targeted creative"] },
+      { title: "Education", items: ["Memory care guides", "Story-driven content"] },
+      { title: "Automated Nurturing", items: ["21-day emotional nurture", "Tour reminders"] },
+      { title: "CRM Implementation", items: ["Pipeline visibility", "Lead source attribution"] },
     ],
-    outcome:
-      "After-hours capture tripled, tour volume rose 68%, and admissions teams gained a clean queue of pre-qualified families each morning.",
+    results: ["Occupancy 71% → 92%", "Monthly inquiries +245%", "Move-ins +58%", "Tour bookings +176%"],
+    revenueImpact: "$950K+ additional annualized revenue",
+    testimonial: { quote: "Families were finally finding us online, and our team had the systems needed to convert inquiries into move-ins." },
   },
   {
-    slug: "pathway-rehab",
-    code: "CS/03",
-    client: "Pathway Rehabilitation",
-    vertical: "Rehab Center · Regional network",
-    headline:
-      "Top-3 local rankings and a 46% drop in cost per inquiry.",
-    summary:
-      "A clinician-reviewed editorial program plus a location overhaul lifted organic admissions ahead of paid for the first time.",
+    slug: "rehab-skilled-nursing", code: "CS/03",
+    client: "Skilled Nursing & Rehabilitation Center", vertical: "Rehabilitation", region: "USA",
+    headline: "312 Qualified Inquiries in 6 Months",
+    summary: "A skilled nursing center diversified beyond hospital referrals into a measurable demand engine.",
     hero: casePathway,
     metrics: [
-      { label: "Local Ranking", value: "Top 3" },
-      { label: "Cost / Inquiry", value: "−46%" },
-      { label: "Organic Admissions", value: "+148%" },
+      { label: "Qualified Inquiries", value: "312" },
+      { label: "Occupancy", value: "78% → 95%" },
+      { label: "Admissions", value: "+46%" },
+      { label: "Cost / Inquiry", value: "−29%" },
     ],
-    problem:
-      "The network ranked outside the top 20 for every condition-level query in its core markets, despite operating the largest rehab footprint in the region.",
-    approach: [
-      "Mapped the clinical decision journey for stroke, orthopedic, and cardiac rehab into a topical authority model.",
-      "Rebuilt every location page with structured data, clinician bios, and outcome data.",
-      "Launched a clinician-reviewed editorial pipeline producing two long-form pieces per week.",
+    micro: { occBefore: "78%", occAfter: "95%", cprDelta: "−29%", inquiryDelta: "+312" },
+    trend: [78, 81, 84, 88, 91, 95],
+    problem: ["Admissions pipeline instability", "Weak digital presence", "Low search visibility", "Limited marketing attribution"],
+    strategy: [
+      { title: "Demand Generation", items: ["Google Ads", "Meta Ads", "Retargeting"] },
+      { title: "Website Optimization", items: ["Landing pages", "Conversion tracking", "Live chat"] },
+      { title: "Automation", items: ["SMS follow-up", "Email nurturing", "CRM workflows"] },
+      { title: "Analytics", items: ["Source attribution", "Tour tracking", "Occupancy forecasting"] },
     ],
-    outcome:
-      "Twelve months later, organic admissions outpaced paid for the first time, and cost per inquiry fell by 46%.",
+    results: ["312 qualified inquiries generated", "Occupancy 78% → 95%", "Admissions +46%", "Cost per inquiry −29%"],
+    revenueImpact: "Material revenue lift across the network",
+    testimonial: { quote: "For the first time, we could clearly see where admissions were coming from and what was driving occupancy." },
   },
   {
-    slug: "evergreen-senior-living",
-    code: "CS/04",
-    client: "Evergreen Senior Living",
-    vertical: "Senior Living Community",
-    headline:
-      "96.4% sustained occupancy with a 3.8× conversion lift.",
-    summary:
-      "A unified admissions infrastructure plus structured reputation systems closed the gap between marketing and move-in.",
+    slug: "sydney-assisted-living", code: "CS/04",
+    client: "Sydney Assisted Living Community", vertical: "Assisted Living", region: "Australia",
+    headline: "From 69% to 91% Occupancy in 9 Months",
+    summary: "A 140-bed Sydney community broke its dependency on referral agencies with a full-funnel digital engine.",
     hero: caseMeridian,
     metrics: [
-      { label: "Occupancy", value: "96.4%" },
-      { label: "Conversion Rate", value: "3.8×" },
-      { label: "Reputation Score", value: "4.9 ★" },
+      { label: "Occupancy", value: "69% → 91%" },
+      { label: "Qualified Inquiries", value: "+219%" },
+      { label: "Tour Bookings", value: "+167%" },
+      { label: "Move-Ins", value: "+52%" },
     ],
-    problem:
-      "Occupancy fluctuated season to season. Reviews were inconsistent, follow-up was manual, and the marketing team had no visibility into the admissions pipeline.",
-    approach: [
-      "Installed an automated review generation and monitoring program across every community.",
-      "Rebuilt the inquiry-to-tour follow-up cadence with AI-assisted SMS and email.",
-      "Connected every channel into a single admissions pipeline dashboard.",
+    micro: { occBefore: "69%", occAfter: "91%", cprDelta: "−34%", inquiryDelta: "+219%" },
+    trend: [67, 70, 74, 78, 82, 85, 88, 90, 91],
+    problem: ["Heavy referral dependency", "Low local visibility", "Weak inquiry conversion", "No structured family follow-up", "Long decision cycles"],
+    strategy: [
+      { title: "Paid Acquisition", items: ["Google Search (Sydney suburbs)", "Meta family-decision-maker ads", "Competitor conquest"] },
+      { title: "Conversion System", items: ["Suburb-level landing pages", "Simplified Book-a-Tour funnel", "Trust content blocks"] },
+      { title: "Automation Layer", items: ["Instant SMS + WhatsApp", "7–14 day nurture", "Tour reminders"] },
+      { title: "Tracking & Analytics", items: ["Lead source dashboard", "Inquiry-to-tour tracking", "Occupancy forecasting"] },
     ],
-    outcome:
-      "Occupancy stabilized at 96.4%, conversion improved 3.8×, and the reputation score climbed to a 4.9 average across the network.",
+    results: ["Occupancy 69% → 91%", "Qualified inquiries +219%", "Tour bookings +167%", "Move-ins +52%"],
+    revenueImpact: "$1.2M+ AUD additional annual revenue",
+    testimonial: { quote: "We finally stopped relying on referrals. Families now come to us already informed and ready to book tours." },
+  },
+  {
+    slug: "singapore-memory-care", code: "CS/05",
+    client: "Premium Memory Care Facility", vertical: "Memory Care", region: "Singapore",
+    headline: "+64% Monthly Move-Ins in 7 Months",
+    summary: "A premium 60-bed Singapore facility built digital trust and accelerated family decision-making.",
+    hero: caseSolstice,
+    metrics: [
+      { label: "Occupancy", value: "73% → 94%" },
+      { label: "Monthly Move-Ins", value: "+64%" },
+      { label: "Qualified Inquiries", value: "+258%" },
+      { label: "Cost / Acquisition", value: "−41%" },
+    ],
+    micro: { occBefore: "73%", occAfter: "94%", cprDelta: "−41%", inquiryDelta: "+258%" },
+    trend: [72, 76, 80, 84, 88, 92, 94],
+    problem: ["Low awareness in market", "30–60 day decision cycles", "No educational content", "Weak retargeting", "Reliance on walk-ins"],
+    strategy: [
+      { title: "Awareness & Education", items: ["Dementia care search campaigns", "Caregiver Meta ads", "Educational video ads"] },
+      { title: "Trust Building", items: ["Family memory care guide", "Staff storytelling pages", "Care journey content"] },
+      { title: "Conversion Optimization", items: ["One-click tour booking", "Live chat", "WhatsApp-first flow"] },
+      { title: "Automation", items: ["21-day nurture", "Reassurance email flows", "Visit reminders"] },
+    ],
+    results: ["Occupancy 73% → 94%", "Monthly move-ins +64%", "Qualified inquiries +258%", "Tour bookings +189%"],
+    revenueImpact: "$980K+ SGD annual revenue impact",
+    testimonial: { quote: "Families now understand us before they even visit. That changed everything about how we convert inquiries." },
   },
 ];
 
-/* ───────────────────────── Industries ───────────────────────── */
-
-export type Industry = { name: string; description: string; image: string };
-
+/* ───────── Industries (homepage) ───────── */
+export type Industry = { name: string; description: string; color: string; icon: string; image?: string };
 export const industries: Industry[] = [
-  { name: "Senior Living", description: "Independent, assisted, and continuing-care communities.", image: indSenior },
-  { name: "Memory Care", description: "Specialized memory and dementia-focused facilities.", image: indMemory },
-  { name: "Rehabilitation", description: "Stroke, orthopedic, and cardiac rehab networks.", image: indBehavioral },
-  { name: "Skilled Nursing", description: "Post-acute, skilled nursing, and recovery centers.", image: indPostAcute },
+  { name: "Nursing Homes", description: "Skilled nursing focused on consistent admissions and reputation growth.", color: "#2563eb", icon: "🏥", image: indPostAcute },
+  { name: "Assisted Living", description: "Communities filling private suites with high-intent families.", color: "#16a34a", icon: "🏡", image: indSenior },
+  { name: "Independent Living", description: "Active senior communities building premium positioning and waitlists.", color: "#0d9488", icon: "🌿" },
+  { name: "Rehabilitation Centers", description: "Post-acute rehab facilities driving steady, qualified referrals.", color: "#7c3aed", icon: "🏥", image: indBehavioral },
+  { name: "Memory Care", description: "Dementia care communities reaching high-decision family audiences.", color: "#4f46e5", icon: "🧠", image: indMemory },
+  { name: "Personal Care Homes", description: "Boutique providers building strong local trust and authority.", color: "#ea580c", icon: "🏘️" },
+  { name: "Senior Living Communities", description: "Full-spectrum communities optimizing occupancy across care levels.", color: "#ca8a04", icon: "🏢" },
 ];
 
-/* ───────────────────────── Process ───────────────────────── */
+export const industryTrustStrip = [
+  { value: "7+", label: "Care Models Supported" },
+  { value: "Multi", label: "Location Operators" },
+  { value: "Enterprise", label: "Admissions Systems" },
+  { value: "HIPAA", label: "Conscious Infrastructure" },
+];
 
+/* Trust */
+export const trustPillars = [
+  { code: "T/01", name: "HIPAA-Conscious Marketing", detail: "Every campaign, form, and integration audited for PHI exposure." },
+  { code: "T/02", name: "Trusted Growth Partner", detail: "Long-term operator partnerships, not one-off retainer churn." },
+  { code: "T/03", name: "Reputation Systems", detail: "Structured review generation and monitoring across every facility." },
+];
+
+export const trustedBy = [
+  "Sunrise Care", "MapleLeaf Living", "Harbor Senior", "Evergreen Rehab",
+  "Silver Oaks", "Heritage Memory", "Willow Brook", "BrightStar Care",
+];
+
+/* Process */
 export const processSteps = [
   { code: "P/01", name: "Strategy & Audit", detail: "Two weeks of intake call audits, funnel teardown, and competitive mapping." },
   { code: "P/02", name: "Growth Plan", detail: "Routing, reporting, and content architecture designed before media moves." },
-  { code: "P/03", name: "Execution", detail: "Paid, organic, and AI agents go live in a staged rollout against census targets." },
-  { code: "P/04", name: "Optimization & Scaling", detail: "Monthly clinical review, quarterly strategy resets with your leadership." },
+  { code: "P/03", name: "Execution", detail: "Paid, organic, and AI agents go live in a staged rollout." },
+  { code: "P/04", name: "Optimization", detail: "Monthly clinical review, quarterly leadership resets." },
 ];
 
-/* ───────────────────────── Results ───────────────────────── */
-
-export const headlineResults = [
-  { value: "+38%", label: "Avg Occupancy Increase" },
-  { value: "4,200+", label: "Qualified Inquiries Generated" },
-  { value: "92%", label: "Local Ranking Improvement" },
-  { value: "4.9★", label: "Average Reputation Score" },
-  { value: "3.5×", label: "Conversion Rate Increase" },
+/* About snapshot */
+export const aboutWhatWeAre = [
+  "Growth Systems Company for Senior Care",
+  "AI + Automation Infrastructure Provider",
+  "Admissions Funnel Specialists",
+  "Healthcare-Focused Digital Engineers",
 ];
 
-/* ───────────────────────── Testimonials ───────────────────────── */
-
-export const testimonials = [
-  {
-    quote:
-      "OccupiaCare rebuilt our admissions stack from the inquiry form to the move-in dashboard. Occupancy stopped fluctuating.",
-    name: "Diane Carver",
-    role: "VP Operations, Meridian",
-  },
-  {
-    quote:
-      "Their AI voice agent picks up at 2 a.m. and books tours before our team gets in. That alone paid for the engagement.",
-    name: "Marcus Reyes",
-    role: "Director of Admissions, Solstice",
-  },
-  {
-    quote:
-      "We finally have one dashboard instead of seven spreadsheets. Every inquiry traces to the dollar that drove it.",
-    name: "Priya Anand",
-    role: "CMO, Pathway Rehabilitation",
-  },
+export const aboutTeam = [
+  { name: "Growth Engineers", role: "Ads, SEO, lead generation" },
+  { name: "Systems Architects", role: "Funnels, CRM, automation design" },
+  { name: "AI Engineers", role: "Voice agents, chat systems, workflow automation" },
+  { name: "Healthcare Conversion Designers", role: "Landing pages, trust systems, family UX" },
 ];
 
-/* ───────────────────────── Team ───────────────────────── */
-
-export const team = [
-  { name: "Avery Holloway", role: "CEO" },
-  { name: "Jordan Pak", role: "Growth Strategist" },
-  { name: "Riya Patel", role: "Performance Marketer" },
-  { name: "Lucas Moreau", role: "Creative Director" },
-  { name: "Sasha Bennett", role: "Client Success Lead" },
+/* Resources */
+export const resources = [
+  { title: "Senior Care Occupancy Playbook", type: "Guide", detail: "A 32-page operator playbook on rebuilding admissions infrastructure." },
+  { title: "AI Agents for Admissions", type: "Whitepaper", detail: "How AI voice + chat agents change first-touch family conversion." },
+  { title: "The Occupancy Audit Checklist", type: "Checklist", detail: "47 checks across web, ads, intake, CRM, and reputation systems." },
+  { title: "HIPAA-Conscious Marketing", type: "Reference", detail: "What to audit before running paid media for senior care facilities." },
+  { title: "Family Decision Journey", type: "Research", detail: "Patterns from 1,200+ family inquiries across assisted living and memory care." },
+  { title: "Case File Library", type: "Case Studies", detail: "Full case studies with month-by-month occupancy charts." },
 ];

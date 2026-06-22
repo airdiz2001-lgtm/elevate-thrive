@@ -11,16 +11,17 @@ export function SiteFooter() {
           </span>
           <p className="mt-6 max-w-sm text-sm text-ink/55">
             A healthcare growth and automation company building modern
-            admissions infrastructure for senior care facilities across the USA.
+            admissions infrastructure for senior care facilities.
           </p>
         </div>
         <FooterCol
           label="Navigate"
           links={[
-            { to: "/about", label: "About" },
+            { to: "/solution", label: "Solution" },
             { to: "/case-studies", label: "Case Studies" },
-            { to: "/services", label: "Process" },
-            { to: "/about", label: "Contact" },
+            { to: "/about", label: "About" },
+            { to: "/resources", label: "Resources" },
+            { to: "/book", label: "Book Consult" },
           ]}
         />
         <FooterCol
