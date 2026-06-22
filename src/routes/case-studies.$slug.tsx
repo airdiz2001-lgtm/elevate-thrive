@@ -82,7 +82,7 @@ function TrendChart({ trend }: { trend: number[] }) {
 }
 
 function CaseDetail() {
-  const cs = Route.useLoaderData();
+  const cs: CaseStudy = Route.useLoaderData();
   const idx = caseStudies.findIndex((x) => x.slug === cs.slug);
   const next = caseStudies[(idx + 1) % caseStudies.length];
 
