@@ -4,13 +4,13 @@ import { services, processSteps } from "@/lib/site-data";
 export const Route = createFileRoute("/solution")({
   head: () => ({
     meta: [
-      { title: "The Protocol — Valence" },
+      { title: "The Protocol — OccupiaCare" },
       {
         name: "description",
         content:
-          "How Valence integrates paid, organic, infrastructure, and AI agents into one census engine for healthcare operators.",
+          "How OccupiaCare integrates paid, organic, infrastructure, and AI agents into one census engine for healthcare operators.",
       },
-      { property: "og:title", content: "The Protocol — Valence" },
+      { property: "og:title", content: "The Protocol — OccupiaCare" },
       {
         property: "og:description",
         content: "One census engine. Four integrated systems.",

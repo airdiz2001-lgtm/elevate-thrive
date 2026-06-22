@@ -4,11 +4,11 @@ import { caseStudies, processSteps } from "@/lib/site-data";
 export const Route = createFileRoute("/case-studies/$slug")({
   head: ({ params }) => {
     const cs = caseStudies.find((x) => x.slug === params?.slug);
-    const title = cs ? `${cs.client} — Case File · Valence` : "Case Study — Valence";
+    const title = cs ? `${cs.client} — Case File · OccupiaCare` : "Case Study — OccupiaCare";
     return {
       meta: [
         { title },
-        { name: "description", content: cs?.summary ?? "Valence case study." },
+        { name: "description", content: cs?.summary ?? "OccupiaCare case study." },
         { property: "og:title", content: title },
         { property: "og:description", content: cs?.summary ?? "" },
         ...(cs?.hero ? [{ property: "og:image", content: cs.hero }] : []),

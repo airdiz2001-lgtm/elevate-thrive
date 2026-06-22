@@ -4,11 +4,11 @@ import { services } from "@/lib/site-data";
 export const Route = createFileRoute("/services/$slug")({
   head: ({ params }) => {
     const s = services.find((x) => x.slug === params?.slug);
-    const title = s ? `${s.name} — Valence` : "Service — Valence";
+    const title = s ? `${s.name} — OccupiaCare` : "Service — OccupiaCare";
     return {
       meta: [
         { title },
-        { name: "description", content: s?.summary ?? "Valence service detail." },
+        { name: "description", content: s?.summary ?? "OccupiaCare service detail." },
         { property: "og:title", content: title },
         { property: "og:description", content: s?.summary ?? "" },
       ],

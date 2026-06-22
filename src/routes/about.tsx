@@ -3,12 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Valence" },
+      { title: "About — OccupiaCare" },
       {
         name: "description",
-        content: "The Valence story, operating principles, and team.",
+        content: "The OccupiaCare story, operating principles, and team.",
       },
-      { property: "og:title", content: "About — Valence" },
+      { property: "og:title", content: "About — OccupiaCare" },
       {
         property: "og:description",
         content: "A growth engineering studio built by operators for operators.",
@@ -57,7 +57,7 @@ function AboutPage() {
           Built by operators. For operators.
         </h1>
         <p className="mt-8 max-w-3xl text-pretty text-xl text-ink/65">
-          Valence was founded after a decade of running marketing for
+          OccupiaCare was founded after a decade of running marketing for
           multi-state senior-care and behavioral health groups. We started the
           studio to do the work the way we always wished our agencies had —
           slower at the start, sharper at the end, and accountable to census,

@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { brand } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
@@ -6,32 +7,33 @@ export function SiteFooter() {
       <div className="container-page mb-20 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <span className="text-2xl font-extrabold tracking-tighter">
-            VALENCE<span className="text-clinical">.</span>
+            OCCUPIA<span className="text-clinical">CARE.</span>
           </span>
           <p className="mt-6 max-w-sm text-sm text-ink/55">
-            A growth engineering studio for healthcare and senior-care
-            operators who require precision over promises.
+            A healthcare growth and automation company building modern
+            admissions infrastructure for senior care facilities across the USA.
           </p>
         </div>
         <FooterCol
-          label="Registry"
+          label="Navigate"
           links={[
-            { to: "/", label: "Home" },
-            { to: "/services", label: "Services" },
-            { to: "/case-studies", label: "Case Studies" },
             { to: "/about", label: "About" },
+            { to: "/case-studies", label: "Case Studies" },
+            { to: "/services", label: "Process" },
+            { to: "/about", label: "Contact" },
           ]}
         />
         <FooterCol
-          label="Office"
-          static={["412 11th Ave N", "Nashville, TN 37203", "inquiry@valence.health"]}
+          label="Contact"
+          static={[brand.email, brand.phone, `HQ · ${brand.hq}`]}
         />
       </div>
       <div className="container-page flex flex-col justify-between gap-4 border-t border-rule pt-8 text-[10px] mono uppercase tracking-widest text-ink/40 md:flex-row">
-        <span>© {new Date().getFullYear()} Valence Operating Co.</span>
+        <span>© {new Date().getFullYear()} {brand.name}</span>
         <div className="flex gap-6">
-          <span>HQ · Nashville, TN</span>
-          <span>Status · Operational</span>
+          <span>HIPAA Notice</span>
+          <span>Privacy Policy</span>
+          <span>Terms</span>
         </div>
       </div>
     </footer>

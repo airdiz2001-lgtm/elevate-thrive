@@ -86,14 +86,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Valence — Growth Engineering for Healthcare Operators" },
+      { title: "OccupiaCare — Growth Engineering for Healthcare Operators" },
       {
         name: "description",
         content:
-          "Valence is a growth engineering studio for healthcare and senior-care operators. Paid acquisition, clinical SEO, intake infrastructure, and AI command systems.",
+          "OccupiaCare is a growth engineering studio for healthcare and senior-care operators. Paid acquisition, clinical SEO, intake infrastructure, and AI command systems.",
       },
-      { name: "author", content: "Valence" },
-      { property: "og:title", content: "Valence — Growth Engineering for Healthcare Operators" },
+      { name: "author", content: "OccupiaCare" },
+      { property: "og:title", content: "OccupiaCare — Growth Engineering for Healthcare Operators" },
       {
         property: "og:description",
         content:
