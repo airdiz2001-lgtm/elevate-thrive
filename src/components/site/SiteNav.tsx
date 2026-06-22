@@ -5,7 +5,7 @@ export function SiteNav() {
     <nav className="sticky top-0 z-50 border-b border-rule bg-paper/85 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="text-xl font-extrabold tracking-tighter">
-          VALENCE<span className="text-clinical">.</span>
+          OCCUPIA<span className="text-clinical">CARE.</span>
         </Link>
         <div className="hidden items-center gap-8 md:flex">
           <NavLink to="/services">Services</NavLink>
@@ -16,7 +16,7 @@ export function SiteNav() {
           to="/about"
           className="mono inline-flex items-center bg-ink px-4 py-2 text-[11px] font-semibold uppercase tracking-widest text-paper transition-colors hover:bg-clinical"
         >
-          Initiate Audit
+          Book Consult
         </Link>
       </div>
     </nav>
