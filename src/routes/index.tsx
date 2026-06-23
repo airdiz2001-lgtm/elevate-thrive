@@ -9,10 +9,12 @@ import {
   industryTrustStrip,
   trustedBy,
   trustPillars,
-  aboutWhatWeAre,
+  founder,
+  aboutMicro,
 } from "@/lib/site-data";
 import { MiniFunnel } from "@/components/site/MiniFunnel";
 import { CalendarCTA } from "@/components/site/CalendarCTA";
+import { BrandIcon } from "@/components/site/BrandIcon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -159,16 +161,18 @@ function ProblemSummary() {
               slow follow-up, no CRM, manual workflows.
             </p>
             <Link to="/problem" className="mono group mt-6 inline-flex items-center gap-2 border-b-2 border-ink pb-1 text-[11px] font-bold uppercase tracking-widest">
-              See more
+              See full breakdown
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
         </div>
         <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-5">
           {coreProblemsHome.map((p, i) => (
-            <article key={p.title} className="flex flex-col gap-3 bg-paper p-5">
+            <article key={p.title} className="flex flex-col gap-4 bg-paper p-6">
               <div className="flex items-center justify-between">
-                <span className="text-2xl leading-none" aria-hidden>{p.icon}</span>
+                <div className="flex size-11 items-center justify-center rounded-md bg-clinical/8 text-clinical">
+                  <BrandIcon name={p.icon} className="size-6" />
+                </div>
                 <span className="mono text-[10px] uppercase tracking-widest text-clinical">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -213,21 +217,19 @@ function SolutionSection() {
           </div>
         </div>
 
-        {/* Grid */}
         <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-3 lg:grid-cols-5">
           {solutionGrid.map((s) => (
-            <article key={s.title} className="flex flex-col gap-3 bg-paper p-5">
-              <span className="text-2xl leading-none" aria-hidden>{s.icon}</span>
+            <article key={s.title} className="flex flex-col gap-4 bg-paper p-5">
+              <div className="flex size-11 items-center justify-center rounded-md bg-clinical/8 text-clinical">
+                <BrandIcon name={s.icon} className="size-6" />
+              </div>
               <h3 className="text-sm font-extrabold uppercase tracking-tight">{s.title}</h3>
               <p className="text-xs text-ink/60">{s.detail}</p>
             </article>
           ))}
         </div>
 
-        {/* Mini funnel */}
-        <div className="mt-10">
-          <MiniFunnel />
-        </div>
+        <div className="mt-10"><MiniFunnel /></div>
 
         <div className="mt-10 flex justify-center">
           <Link to="/solution" className="mono inline-flex items-center gap-2 bg-ink px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-paper hover:bg-clinical">
@@ -240,7 +242,7 @@ function SolutionSection() {
   );
 }
 
-/* ─────────── CASE STUDIES (4 highlight cards) ─────────── */
+/* ─────────── CASE STUDIES ─────────── */
 function CaseStudiesPreview() {
   const featured = caseStudies.slice(0, 4);
   return (
@@ -251,10 +253,10 @@ function CaseStudiesPreview() {
             (03) Case Files
           </span>
           <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
-            Proven results across senior care communities.
+            Proven occupancy growth across senior care communities.
           </h2>
           <p className="mt-4 text-ink/65">
-            Real occupancy growth, real admissions systems, real revenue impact.
+            Real occupancy lift, real admissions systems, real revenue impact.
           </p>
         </div>
         <Link to="/case-studies" className="mono text-[11px] uppercase tracking-widest text-ink/60 hover:text-clinical">
@@ -290,13 +292,6 @@ function CaseStudiesPreview() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-2">
-              {["Ads", "Automation", "CRM", "Tours"].map((t) => (
-                <span key={t} className="mono border border-rule px-2 py-1 text-[10px] uppercase tracking-widest text-ink/55">
-                  {t}
-                </span>
-              ))}
-            </div>
             <p className="text-sm text-ink/60">{cs.summary}</p>
           </Link>
         ))}
@@ -318,7 +313,7 @@ function Sparkline({ trend }: { trend: number[] }) {
   );
 }
 
-/* ─────────── INDUSTRIES ─────────── */
+/* ─────────── INDUSTRIES — real photos ─────────── */
 function IndustriesSection() {
   return (
     <section className="border-y border-rule bg-white py-24 md:py-28">
@@ -335,22 +330,22 @@ function IndustriesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((ind) => (
-            <article key={ind.name} className="group relative flex flex-col gap-4 bg-paper p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
-              <div
-                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
-                style={{ background: ind.color }}
-              />
-              <div
-                className="flex size-12 items-center justify-center rounded text-2xl"
-                style={{ background: `${ind.color}14`, color: ind.color }}
-                aria-hidden
-              >
-                {ind.icon}
+            <article key={ind.name} className="group relative flex flex-col overflow-hidden bg-paper">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={ind.image}
+                  alt={ind.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-paper">
+                  <h3 className="text-lg font-extrabold uppercase leading-tight tracking-tight">{ind.name}</h3>
+                </div>
               </div>
-              <h3 className="text-lg font-extrabold uppercase tracking-tight">{ind.name}</h3>
-              <p className="text-sm text-ink/60">{ind.description}</p>
+              <p className="p-5 text-sm text-ink/65">{ind.description}</p>
             </article>
           ))}
         </div>
@@ -405,49 +400,68 @@ function TrustedBy() {
   );
 }
 
-/* ─────────── ABOUT SNAPSHOT ─────────── */
+/* ─────────── ABOUT SNAPSHOT — founder-led, short version ─────────── */
 function AboutSnapshot() {
   return (
     <section className="border-y border-rule bg-white py-24 md:py-28">
-      <div className="container-page grid gap-12 md:grid-cols-12">
-        <div className="md:col-span-5">
-          <span className="mono mb-4 block text-[10px] uppercase tracking-widest text-ink/40">
-            (06) About OccupiaCare
-          </span>
-          <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
-            Built for one purpose: increasing senior care occupancy.
-          </h2>
-          <p className="mt-6 max-w-md text-ink/65">
-            We design AI-powered admissions systems that help senior care
-            operators attract more families, convert more inquiries, and
-            increase occupancy predictably.
-          </p>
-          <Link to="/about" className="mono group mt-8 inline-flex items-center gap-2 border-b-2 border-ink pb-1 text-[11px] font-bold uppercase tracking-widest">
-            Meet the founder
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
-        </div>
-        <div className="md:col-span-7">
-          <span className="mono mb-4 block text-[10px] uppercase tracking-widest text-ink/40">
-            What We Are
-          </span>
-          <ul className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2">
-            {aboutWhatWeAre.map((w, i) => (
-              <li key={w} className="flex items-baseline gap-3 bg-paper p-5">
-                <span className="mono text-[10px] uppercase tracking-widest text-clinical">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-sm font-extrabold uppercase tracking-tight">{w}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-ink/70 md:grid-cols-4">
-            {solutionMetrics.slice(0, 4).map((m) => (
-              <div key={m.label}>
-                <div className="text-xl font-extrabold tracking-tight text-ink">{m.value}</div>
-                <div className="mono text-[10px] uppercase tracking-widest text-ink/45">{m.label}</div>
+      <div className="container-page">
+        <span className="mono mb-12 block text-[10px] uppercase tracking-widest text-ink/40">
+          (06) About OccupiaCare
+        </span>
+        <div className="grid gap-12 md:grid-cols-12">
+          {/* Left: text */}
+          <div className="md:col-span-7">
+            <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
+              Helping senior care communities build{" "}
+              <span className="text-clinical">predictable occupancy growth</span>.
+            </h2>
+            <div className="mt-6 space-y-4 text-lg text-ink/70">
+              <p>
+                OccupiaCare builds performance-driven admission systems for
+                assisted living, memory care, and nursing homes.
+              </p>
+              <p>
+                We help facilities replace referral dependency with consistent
+                family inquiries, tours, and move-ins.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-px overflow-hidden border border-rule bg-rule">
+              {aboutMicro.map((m) => (
+                <div key={m.label} className="bg-paper p-5">
+                  <div className="text-2xl font-extrabold tracking-tight text-clinical md:text-3xl">{m.value}</div>
+                  <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{m.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <Link to="/about" className="mono group mt-8 inline-flex items-center gap-2 border-b-2 border-ink pb-1 text-[11px] font-bold uppercase tracking-widest">
+              View full story
+              <span className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+
+          {/* Right: founder block */}
+          <div className="md:col-span-5">
+            <div className="border border-rule bg-bone p-6">
+              <div className="overflow-hidden rounded-md border border-rule bg-ink">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full object-cover"
+                />
               </div>
-            ))}
+              <div className="mt-5">
+                <div className="text-xl font-extrabold uppercase tracking-tight">{founder.name}</div>
+                <div className="mono mt-1 text-[10px] uppercase tracking-widest text-clinical">
+                  {founder.title}
+                </div>
+                <p className="mt-4 border-l-2 border-clinical pl-4 text-ink/75">
+                  "{founder.quote}"
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

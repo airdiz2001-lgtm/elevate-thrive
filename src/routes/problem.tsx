@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { coreGrowthBarriers, industryRealityGroups } from "@/lib/site-data";
+import { BrandIcon } from "@/components/site/BrandIcon";
 
 export const Route = createFileRoute("/problem")({
   head: () => ({
@@ -45,7 +46,9 @@ function ProblemPage() {
             {coreGrowthBarriers.map((b, i) => (
               <article key={b.title} className="flex flex-col gap-4 bg-paper p-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl leading-none" aria-hidden>{b.icon}</span>
+                  <div className="flex size-11 items-center justify-center rounded-md bg-clinical/8 text-clinical">
+                    <BrandIcon name={b.icon} className="size-6" />
+                  </div>
                   <span className="mono text-[10px] uppercase tracking-widest text-clinical">
                     {String(i + 1).padStart(2, "0")}
                   </span>
