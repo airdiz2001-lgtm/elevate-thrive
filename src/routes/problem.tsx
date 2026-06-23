@@ -94,7 +94,9 @@ function ProblemPage() {
           {industryRealityGroups.map((g) => (
             <article key={g.group} className="flex flex-col gap-4 bg-paper p-6">
               <div className="flex items-center gap-3">
-                <span className="text-2xl" aria-hidden>{g.icon}</span>
+                <div className="flex size-9 items-center justify-center rounded bg-clinical/8 text-clinical">
+                  <BrandIcon name={g.icon} className="size-5" />
+                </div>
                 <span className="mono text-[10px] uppercase tracking-widest text-clinical">
                   {g.group}
                 </span>
