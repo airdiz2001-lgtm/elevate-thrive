@@ -8,9 +8,10 @@ export function SiteNav() {
           OCCUPIA<span className="text-clinical">CARE.</span>
         </Link>
         <div className="hidden items-center gap-8 md:flex">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
           <NavLink to="/solution">Solution</NavLink>
           <NavLink to="/case-studies">Case Studies</NavLink>
-          <NavLink to="/about">About</NavLink>
           <NavLink to="/resources">Resources</NavLink>
         </div>
         <Link
@@ -30,6 +31,7 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
       to={to}
       className="mono text-[11px] font-medium uppercase tracking-widest text-ink/60 transition-colors hover:text-ink"
       activeProps={{ className: "text-ink" }}
+      activeOptions={{ exact: to === "/" }}
     >
       {children}
     </Link>
