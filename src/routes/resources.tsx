@@ -1,17 +1,36 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { resources } from "@/lib/site-data";
+import { BrandIcon } from "@/components/site/BrandIcon";
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
       { title: "Resources — OccupiaCare" },
-      { name: "description", content: "Playbooks, whitepapers, and operator references for senior care growth." },
+      { name: "description", content: "Free occupancy audit checklist and senior care growth playbook." },
       { property: "og:title", content: "Resources — OccupiaCare" },
-      { property: "og:description", content: "Operator playbooks and references." },
+      { property: "og:description", content: "Audit checklist and playbook for senior care operators." },
     ],
   }),
   component: ResourcesPage,
 });
+
+const RESOURCES = [
+  {
+    code: "R/01",
+    icon: "clipboard" as const,
+    title: "Occupancy Audit Checklist",
+    detail:
+      "47 checks across website, paid media, intake, CRM, and reputation systems — the same audit we run before every engagement.",
+    cta: "Get the checklist",
+  },
+  {
+    code: "R/02",
+    icon: "doc" as const,
+    title: "Senior Care Growth Playbook",
+    detail:
+      "A 32-page operator playbook on rebuilding admissions infrastructure, with the exact funnel that has driven +18–24% occupancy across client facilities.",
+    cta: "Get the playbook",
+  },
+];
 
 function ResourcesPage() {
   return (
@@ -21,36 +40,56 @@ function ResourcesPage() {
           Resources · Operator Library
         </span>
         <h1 className="max-w-4xl text-balance text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-7xl">
-          Playbooks for occupancy-led operators.
+          Tools for occupancy-led operators.
         </h1>
         <p className="mt-8 max-w-2xl text-pretty text-lg text-ink/65">
-          Field-tested guides, whitepapers, and references — drawn from work
-          across hundreds of senior care facilities.
+          Two field-tested resources drawn from work with hundreds of senior
+          care facilities. Want more — book a strategy session.
         </p>
       </section>
 
-      <section className="container-page pb-28">
-        <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2 lg:grid-cols-3">
-          {resources.map((r, i) => (
-            <article key={r.title} className="flex flex-col gap-4 bg-paper p-8">
+      <section className="container-page pb-20">
+        <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2">
+          {RESOURCES.map((r) => (
+            <article key={r.code} className="flex flex-col gap-6 bg-paper p-10">
               <div className="flex items-center justify-between">
                 <span className="mono text-[10px] uppercase tracking-widest text-clinical">
-                  R/{String(i + 1).padStart(2, "0")}
+                  {r.code}
                 </span>
-                <span className="mono text-[10px] uppercase tracking-widest text-ink/40">
-                  {r.type}
-                </span>
+                <BrandIcon name={r.icon} className="size-8 text-clinical" />
               </div>
-              <h2 className="text-xl font-extrabold uppercase tracking-tight">{r.title}</h2>
-              <p className="text-sm text-ink/60">{r.detail}</p>
+              <h2 className="text-2xl font-extrabold uppercase tracking-tight md:text-3xl">
+                {r.title}
+              </h2>
+              <p className="text-ink/65">{r.detail}</p>
               <Link
                 to="/book"
-                className="mono mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-widest text-ink/70 hover:text-clinical"
+                className="mono mt-auto inline-flex items-center gap-2 self-start bg-ink px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-paper hover:bg-clinical"
               >
-                Request access →
+                {r.cta} →
               </Link>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-rule bg-clinical py-20 text-paper md:py-24">
+        <div className="container-page text-center">
+          <span className="mono mb-4 block text-[10px] uppercase tracking-widest text-paper/55">
+            Want more
+          </span>
+          <h2 className="mx-auto max-w-3xl text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
+            Book a strategy meeting.
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-paper/75">
+            Get a custom 90-day occupancy plan tailored to your facility.
+          </p>
+          <Link
+            to="/book"
+            className="mono mt-8 inline-block bg-paper px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-ink hover:bg-bone"
+          >
+            Book strategy meeting →
+          </Link>
         </div>
       </section>
     </>
