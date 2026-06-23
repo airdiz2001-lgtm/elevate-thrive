@@ -1,7 +1,7 @@
-import type { SVGProps } from "react";
+import type { SVGProps, ReactElement } from "react";
 
 /* Premium, brand-aligned SVG icons. Single stroke style, currentColor. */
-const ICONS: Record<string, (p: SVGProps<SVGSVGElement>) => JSX.Element> = {
+const ICONS: Record<string, (p: SVGProps<SVGSVGElement>) => ReactElement> = {
   /* PROBLEMS */
   website: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}>
