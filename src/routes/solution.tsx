@@ -44,11 +44,28 @@ function SolutionPage() {
             predictable occupancy growth.
           </p>
 
-          <div className="mt-14 grid grid-cols-3 items-stretch gap-px overflow-hidden border border-paper/20 bg-paper/15">
-            {["Reviews", "Facility", "Ads", "SEO", "Automation + CRM", "Admissions"].map((n) => (
-              <div key={n} className="flex aspect-square items-center justify-center bg-clinical p-4 text-center md:aspect-[3/2]">
-                <span className="text-base font-extrabold uppercase tracking-tight md:text-lg">{n}</span>
-              </div>
+          <div className="mt-14 grid grid-cols-2 items-stretch gap-px overflow-hidden border border-paper/20 bg-paper/15 md:grid-cols-3">
+            {ecosystemBoxes.map((b, i) => (
+              <article key={b.name} className="group relative aspect-[4/3] overflow-hidden bg-ink">
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover opacity-65 transition-all duration-500 group-hover:scale-105 group-hover:opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent" />
+                <div className="absolute inset-0 flex flex-col justify-between p-5 text-paper">
+                  <span className="mono text-[10px] uppercase tracking-widest text-paper/70">
+                    {String(i + 1).padStart(2, "0")} · Layer
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-extrabold uppercase leading-tight tracking-tight md:text-2xl">
+                      {b.name}
+                    </h3>
+                    <p className="mono mt-1 text-[10px] uppercase tracking-widest text-paper/75">{b.detail}</p>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -77,7 +94,9 @@ function SolutionPage() {
         <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2">
           {solutionGrid.map((s, i) => (
             <article key={s.title} className="flex gap-6 bg-paper p-6 md:p-8">
-              <span className="text-3xl leading-none" aria-hidden>{s.icon}</span>
+              <div className="flex size-14 shrink-0 items-center justify-center rounded-md border border-clinical/15 bg-clinical/8 text-clinical">
+                <BrandIcon name={s.icon} className="size-7" />
+              </div>
               <div className="flex-1">
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="text-lg font-extrabold uppercase tracking-tight">{s.title}</h3>
