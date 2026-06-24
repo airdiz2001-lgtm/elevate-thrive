@@ -207,17 +207,24 @@ function AboutPage() {
           <p className="mb-12 max-w-2xl text-ink/65">
             Embedded team working as an extension of your facility.
           </p>
-          <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid gap-px overflow-hidden border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-5">
             {aboutTeam.map((t, i) => (
-              <article key={t.name} className="flex flex-col gap-3 bg-paper p-6">
-                <span className="mono text-[10px] uppercase tracking-widest text-clinical">
-                  T/{String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="flex size-12 items-center justify-center rounded-full bg-clinical/10 text-base font-extrabold uppercase text-clinical">
-                  {t.name.charAt(0)}
+              <article key={t.name} className="group flex flex-col bg-paper">
+                <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                  />
+                  <span className="mono absolute left-3 top-3 bg-paper px-2 py-1 text-[10px] uppercase tracking-widest text-ink">
+                    T/{String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
-                <h3 className="text-lg font-extrabold uppercase tracking-tight">{t.name}</h3>
-                <p className="mono text-[10px] uppercase tracking-widest text-ink/50">{t.role}</p>
+                <div className="flex flex-col gap-1 p-5">
+                  <h3 className="text-lg font-extrabold uppercase tracking-tight">{t.name}</h3>
+                  <p className="mono text-[10px] uppercase tracking-widest text-clinical">{t.role}</p>
+                </div>
               </article>
             ))}
           </div>
