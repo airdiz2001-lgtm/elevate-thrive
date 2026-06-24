@@ -7,7 +7,9 @@ import {
   funnelFull,
   dashboardMetrics,
   infrastructureCols,
+  ecosystemBoxes,
 } from "@/lib/site-data";
+import { BrandIcon } from "@/components/site/BrandIcon";
 
 export const Route = createFileRoute("/solution")({
   head: () => ({
