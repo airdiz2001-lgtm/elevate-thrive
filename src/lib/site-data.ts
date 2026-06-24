@@ -10,6 +10,39 @@ import indIndependent from "@/assets/industry-independent.jpg";
 import indPersonal from "@/assets/industry-personal-care.jpg";
 import indCommunity from "@/assets/industry-senior-community.jpg";
 import founderImg from "@/assets/founder-ad-danish.jpg";
+import solReviews from "@/assets/sol-reviews.jpg";
+import solFacility from "@/assets/sol-facility.jpg";
+import solAds from "@/assets/sol-ads.jpg";
+import solSeo from "@/assets/sol-seo.jpg";
+import solAutomation from "@/assets/sol-automation.jpg";
+import solAdmissions from "@/assets/sol-admissions.jpg";
+import teamHassan from "@/assets/team-hassan.jpg";
+import teamAdam from "@/assets/team-adam.jpg";
+import teamJade from "@/assets/team-jade.jpg";
+import teamAisha from "@/assets/team-aisha.jpg";
+import teamSami from "@/assets/team-sami.jpg";
+import caseHappy from "@/assets/case-happy-residents.jpg";
+
+/* Re-export image used on case detail pages */
+export { caseHappy };
+
+/* Ecosystem visual tiles for solution hero (6 box) */
+export const ecosystemBoxes = [
+  { name: "Reviews", image: solReviews, detail: "Family trust & 5-star reputation systems." },
+  { name: "Facility", image: solFacility, detail: "Premium digital presence for every community." },
+  { name: "Ads", image: solAds, detail: "Performance media engineered for occupancy." },
+  { name: "SEO", image: solSeo, detail: "Top-rank for high-intent local search." },
+  { name: "Automation + CRM", image: solAutomation, detail: "Instant follow-up, scored pipeline, zero leaks." },
+  { name: "Admissions", image: solAdmissions, detail: "Warm hand-off from inquiry to move-in." },
+];
+
+/* Homepage facility stats strip */
+export const facilityStats = [
+  { value: "25+", label: "Facilities Served" },
+  { value: "1000s", label: "Smiling Residents Admitted" },
+  { value: "$10M+", label: "Annualized Revenue Influenced" },
+  { value: "3", label: "Continents Operating" },
+];
 
 /* Brand */
 export const brand = {
@@ -497,11 +530,11 @@ export const aboutWhatWeAre = [
 ];
 
 export const aboutTeam = [
-  { name: "Hassan", role: "Growth Strategist" },
-  { name: "Adam", role: "Paid Media Lead" },
-  { name: "Jade", role: "CRM & Automation Engineer" },
-  { name: "Aisha", role: "Conversion Designer" },
-  { name: "Sami", role: "Analytics & Reporting" },
+  { name: "Hassan", role: "Growth Strategist", image: teamHassan },
+  { name: "Adam", role: "Paid Media Lead", image: teamAdam },
+  { name: "Jade", role: "CRM & Automation Engineer", image: teamJade },
+  { name: "Aisha", role: "Conversion Designer", image: teamAisha },
+  { name: "Sami", role: "Analytics & Reporting", image: teamSami },
 ];
 
 export const aboutRegions = ["United States", "Europe", "Asia Pacific"];
