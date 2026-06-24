@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { caseStudies, type CaseStudy } from "@/lib/site-data";
+import { caseStudies, caseHappy, type CaseStudy } from "@/lib/site-data";
 
 export const Route = createFileRoute("/case-studies/$slug")({
   head: ({ params }) => {
@@ -305,6 +305,31 @@ function CaseDetail() {
           </div>
         </section>
       )}
+
+      {/* Inside the facility — happy residents */}
+      <section className="container-page py-16 md:py-20">
+        <div className="grid gap-6 md:grid-cols-12 md:items-stretch">
+          <div className="md:col-span-8">
+            <div className="relative aspect-[16/9] overflow-hidden border border-rule">
+              <img
+                src={caseHappy}
+                alt={`Residents inside ${cs.client}`}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <span className="mono absolute bottom-4 left-4 bg-paper px-3 py-1 text-[10px] uppercase tracking-widest text-ink">
+                Inside · {cs.client}
+              </span>
+            </div>
+          </div>
+          <div className="md:col-span-4 flex flex-col justify-center border border-rule bg-bone p-8">
+            <span className="mono text-[10px] uppercase tracking-widest text-clinical">Real residents · Real outcomes</span>
+            <p className="mt-4 text-lg font-extrabold uppercase leading-tight tracking-tight text-ink md:text-2xl">
+              Behind every percentage point is a family that found the right home.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonial */}
       <section className="container-page py-20 md:py-24">
