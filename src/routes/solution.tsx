@@ -121,17 +121,27 @@ function SolutionPage() {
             The AI systems running modern admissions.
           </h2>
           <div className="grid grid-cols-2 gap-px overflow-hidden border border-paper/15 bg-paper/10 md:grid-cols-5">
-            {aiInfrastructure.map((c, i) => (
-              <div key={c} className="flex flex-col gap-3 bg-ink p-5">
-                <span className="mono text-[10px] uppercase tracking-widest text-paper/45">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-sm font-bold uppercase tracking-tight">{c}</span>
-                <span className="mt-auto inline-flex items-center gap-2 text-[10px] mono uppercase tracking-widest text-clinical/80">
-                  <span className="size-1.5 animate-pulse rounded-full bg-clinical" /> Active
-                </span>
-              </div>
-            ))}
+            {aiInfrastructure.map((c, i) => {
+              const iconNames = ["target", "phone", "bot", "calendar", "spark", "trendUp", "star", "database", "share", "shield"];
+              const iconName = iconNames[i % iconNames.length];
+              return (
+                <div key={c} className="group relative flex flex-col gap-4 overflow-hidden bg-ink p-5 transition-colors hover:bg-ink/80">
+                  <div className="absolute -right-6 -top-6 size-24 rounded-full bg-clinical/10 blur-2xl transition-opacity group-hover:opacity-100" />
+                  <div className="flex items-center justify-between">
+                    <div className="relative flex size-11 items-center justify-center rounded-md border border-clinical/30 bg-clinical/10 text-clinical">
+                      <BrandIcon name={iconName} className="size-5" />
+                    </div>
+                    <span className="mono text-[10px] uppercase tracking-widest text-paper/45">
+                      AI/{String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <span className="text-sm font-bold uppercase tracking-tight">{c}</span>
+                  <span className="mt-auto inline-flex items-center gap-2 text-[10px] mono uppercase tracking-widest text-clinical/90">
+                    <span className="size-1.5 animate-pulse rounded-full bg-clinical" /> Active
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
