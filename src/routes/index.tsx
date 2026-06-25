@@ -192,15 +192,16 @@ function ProblemSummary() {
           {coreProblemsHome.map((p, i) => (
             <article key={p.title} className="flex flex-col gap-4 bg-paper p-6">
               <div className="flex items-center justify-between">
-                <div className="flex size-11 items-center justify-center rounded-md bg-clinical/8 text-clinical">
+                <div className="flex size-11 items-center justify-center rounded-md bg-alert-soft text-alert">
                   <BrandIcon name={p.icon} className="size-6" />
                 </div>
-                <span className="mono text-[10px] uppercase tracking-widest text-clinical">
+                <span className="mono text-[10px] uppercase tracking-widest text-alert">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <h3 className="text-sm font-extrabold uppercase tracking-tight">{p.title}</h3>
               <p className="text-xs text-ink/60">{p.detail}</p>
+              <span className="mono mt-auto text-[10px] uppercase tracking-widest text-alert/80">⚠ Growth Blocker</span>
             </article>
           ))}
         </div>
