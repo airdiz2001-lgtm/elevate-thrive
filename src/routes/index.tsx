@@ -487,7 +487,7 @@ function AboutSnapshot() {
           <div className="md:col-span-7">
             <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
               Helping senior care communities build{" "}
-              <span className="text-clinical">predictable occupancy growth</span>.
+              <span className="text-growth">predictable occupancy growth</span>.
             </h2>
             <div className="mt-6 space-y-4 text-lg text-ink/70">
               <p>
