@@ -65,7 +65,7 @@ function Hero() {
             </div>
             <h1 className="text-balance text-5xl font-extrabold uppercase leading-[0.92] tracking-tight md:text-7xl">
               Helping senior care facilities increase{" "}
-              <span className="text-clinical">occupancy</span> and build family trust.
+              <span className="text-growth">occupancy</span> and build family trust.
             </h1>
             <p className="mt-8 max-w-2xl text-pretty text-lg text-ink/65 md:text-xl">
               We help nursing homes, assisted living communities, rehabilitation
