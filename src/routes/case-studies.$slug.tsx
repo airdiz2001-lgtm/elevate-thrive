@@ -107,7 +107,7 @@ function TrendChart({ trend }: { trend: number[] }) {
 function StatTile({ value, label, dark }: { value: string; label: string; dark?: boolean }) {
   return (
     <div className={`flex flex-col gap-2 border ${dark ? "border-paper/15 bg-ink text-paper" : "border-rule bg-paper text-ink"} p-6`}>
-      <div className={`text-3xl font-extrabold tracking-tighter md:text-4xl ${dark ? "text-clinical" : "text-clinical"}`}>{value}</div>
+      <div className={`text-3xl font-extrabold tracking-tighter md:text-4xl ${dark ? "text-clinical" : "text-growth"}`}>{value}</div>
       <div className={`mono text-[10px] uppercase tracking-widest ${dark ? "text-paper/55" : "text-ink/45"}`}>{label}</div>
     </div>
   );
