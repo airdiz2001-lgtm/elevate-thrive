@@ -94,17 +94,17 @@ function ProblemPage() {
           {industryRealityGroups.map((g) => (
             <article key={g.group} className="flex flex-col gap-4 bg-paper p-6">
               <div className="flex items-center gap-3">
-                <div className="flex size-9 items-center justify-center rounded bg-clinical/8 text-clinical">
+                <div className="flex size-9 items-center justify-center rounded bg-alert-soft text-alert">
                   <BrandIcon name={g.icon} className="size-5" />
                 </div>
-                <span className="mono text-[10px] uppercase tracking-widest text-clinical">
+                <span className="mono text-[10px] uppercase tracking-widest text-alert">
                   {g.group}
                 </span>
               </div>
               <ul className="space-y-2 text-sm text-ink/70">
                 {g.items.map((it) => (
                   <li key={it} className="flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-clinical" />
+                    <span className="size-1.5 rounded-full bg-alert" />
                     {it}
                   </li>
                 ))}
