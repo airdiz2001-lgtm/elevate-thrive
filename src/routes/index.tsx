@@ -304,16 +304,19 @@ function CaseStudiesPreview() {
               </span>
             </div>
             <h3 className="text-2xl font-extrabold uppercase leading-tight tracking-tight">
-              {cs.metrics[0].value} {cs.metrics[0].label}
+              <span className="text-growth">{cs.metrics[0].value}</span> {cs.metrics[0].label}
             </h3>
             <Sparkline trend={cs.trend} />
             <div className="grid grid-cols-3 gap-3 border-t border-rule pt-4">
-              {cs.metrics.slice(1, 4).map((m) => (
+              {cs.metrics.slice(1, 4).map((m) => {
+                const green = isGrowthLabel(m.label);
+                return (
                 <div key={m.label}>
-                  <div className="text-base font-extrabold text-ink">{m.value}</div>
+                  <div className={`text-base font-extrabold ${green ? "text-growth" : "text-ink"}`}>{m.value}</div>
                   <div className="mono text-[10px] uppercase tracking-widest text-ink/45">{m.label}</div>
                 </div>
-              ))}
+                );
+              })}
             </div>
             <p className="text-sm text-ink/60">{cs.summary}</p>
           </Link>
