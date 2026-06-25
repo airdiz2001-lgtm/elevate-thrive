@@ -33,7 +33,6 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <FacilityStatsStrip />
       <VideoSection />
       <IndustriesSection />
       <ProblemSummary />
@@ -46,20 +45,9 @@ function HomePage() {
   );
 }
 
-/* ─────────── FACILITY STATS STRIP ─────────── */
-function FacilityStatsStrip() {
-  return (
-    <section className="border-b border-rule bg-ink py-10 text-paper md:py-14">
-      <div className="container-page grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-4">
-        {facilityStats.map((s) => (
-          <div key={s.label} className="border-l-2 border-clinical pl-4">
-            <div className="text-3xl font-extrabold tracking-tighter md:text-5xl">{s.value}</div>
-            <div className="mono mt-2 text-[10px] uppercase tracking-widest text-paper/55">{s.label}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+/* Helper: detect occupancy/revenue labels → green */
+function isGrowthLabel(label: string) {
+  return /occupanc|revenue|move-?in|admission|inquir|tour|resident/i.test(label);
 }
 
 /* ─────────── HERO ─────────── */
