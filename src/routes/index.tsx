@@ -503,7 +503,7 @@ function AboutSnapshot() {
             <div className="mt-8 grid grid-cols-3 gap-px overflow-hidden border border-rule bg-rule">
               {aboutMicro.map((m) => (
                 <div key={m.label} className="bg-paper p-5">
-                  <div className="text-2xl font-extrabold tracking-tight text-clinical md:text-3xl">{m.value}</div>
+                  <div className="text-2xl font-extrabold tracking-tight text-growth md:text-3xl">{m.value}</div>
                   <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{m.label}</div>
                 </div>
               ))}
