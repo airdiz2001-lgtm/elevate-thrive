@@ -17,6 +17,10 @@
   --color-ink: var(--ink);
   --color-clinical: var(--clinical);
   --color-clinical-deep: var(--clinical-deep);
+  --color-growth: var(--growth);
+  --color-growth-soft: var(--growth-soft);
+  --color-alert: var(--alert);
+  --color-alert-soft: var(--alert-soft);
   --color-accent: var(--accent);
   --color-bone: var(--bone);
   --color-rule: var(--rule);
