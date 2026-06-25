@@ -333,7 +333,7 @@ function Sparkline({ trend }: { trend: number[] }) {
   const step = w / (trend.length - 1);
   const points = trend.map((v, i) => `${i * step},${h - ((v - min) / (max - min)) * h}`).join(" ");
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} className="h-12 w-full text-clinical">
+    <svg viewBox={`0 0 ${w} ${h}`} className="h-12 w-full text-growth">
       <polyline points={points} fill="none" stroke="currentColor" strokeWidth="2.5" />
     </svg>
   );
