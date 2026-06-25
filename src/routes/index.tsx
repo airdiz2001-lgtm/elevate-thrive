@@ -89,7 +89,36 @@ function Hero() {
                 Operator Index · TTM
               </span>
               <ul className="divide-y divide-rule">
-                {heroMetrics.map((m) => (
+                {heroMetrics.map((m) => {
+                  const green = isGrowthLabel(m.label);
+                  return (
+                  <li key={m.label} className="flex items-baseline justify-between py-3 first:pt-0 last:pb-0">
+                    <span className="mono text-[10px] uppercase tracking-widest text-ink/55">{m.label}</span>
+                    <span className={`text-xl font-extrabold tracking-tighter ${green ? "text-growth" : "text-ink"}`}>{m.value}</span>
+                  </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        {/* Facility credibility row — integrated, not a separate strip */}
+        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-rule pt-10 md:grid-cols-4">
+          {facilityStats.map((s) => {
+            const green = /revenue|resident|admit|occupanc/i.test(s.label);
+            return (
+              <div key={s.label} className="border-l-2 border-clinical pl-4">
+                <div className={`text-3xl font-extrabold tracking-tighter md:text-5xl ${green ? "text-growth" : "text-ink"}`}>{s.value}</div>
+                <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/55">{s.label}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
                   <li key={m.label} className="flex items-baseline justify-between py-3 first:pt-0 last:pb-0">
                     <span className="mono text-[10px] uppercase tracking-widest text-ink/55">{m.label}</span>
                     <span className="text-xl font-extrabold tracking-tighter text-ink">{m.value}</span>
