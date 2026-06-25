@@ -119,19 +119,6 @@ function Hero() {
     </section>
   );
 }
-                  <li key={m.label} className="flex items-baseline justify-between py-3 first:pt-0 last:pb-0">
-                    <span className="mono text-[10px] uppercase tracking-widest text-ink/55">{m.label}</span>
-                    <span className="text-xl font-extrabold tracking-tighter text-ink">{m.value}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─────────── VIDEO ─────────── */
 function VideoSection() {
