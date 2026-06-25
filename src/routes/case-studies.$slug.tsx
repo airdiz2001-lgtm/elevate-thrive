@@ -107,7 +107,7 @@ function TrendChart({ trend }: { trend: number[] }) {
 function StatTile({ value, label, dark }: { value: string; label: string; dark?: boolean }) {
   return (
     <div className={`flex flex-col gap-2 border ${dark ? "border-paper/15 bg-ink text-paper" : "border-rule bg-paper text-ink"} p-6`}>
-      <div className={`text-3xl font-extrabold tracking-tighter md:text-4xl ${dark ? "text-clinical" : "text-clinical"}`}>{value}</div>
+      <div className={`text-3xl font-extrabold tracking-tighter md:text-4xl ${dark ? "text-clinical" : "text-growth"}`}>{value}</div>
       <div className={`mono text-[10px] uppercase tracking-widest ${dark ? "text-paper/55" : "text-ink/45"}`}>{label}</div>
     </div>
   );
@@ -259,7 +259,7 @@ function CaseDetail() {
           <div className="mb-10 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-5">
             {cs.resultsDetail.map((r) => (
               <div key={r.label} className="bg-paper p-6">
-                <div className="text-3xl font-extrabold tracking-tighter text-clinical md:text-4xl">{r.value}</div>
+                <div className="text-3xl font-extrabold tracking-tighter text-growth md:text-4xl">{r.value}</div>
                 <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{r.label}</div>
               </div>
             ))}

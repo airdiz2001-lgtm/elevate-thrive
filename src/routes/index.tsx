@@ -33,7 +33,6 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <FacilityStatsStrip />
       <VideoSection />
       <IndustriesSection />
       <ProblemSummary />
@@ -46,20 +45,9 @@ function HomePage() {
   );
 }
 
-/* ─────────── FACILITY STATS STRIP ─────────── */
-function FacilityStatsStrip() {
-  return (
-    <section className="border-b border-rule bg-ink py-10 text-paper md:py-14">
-      <div className="container-page grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-4">
-        {facilityStats.map((s) => (
-          <div key={s.label} className="border-l-2 border-clinical pl-4">
-            <div className="text-3xl font-extrabold tracking-tighter md:text-5xl">{s.value}</div>
-            <div className="mono mt-2 text-[10px] uppercase tracking-widest text-paper/55">{s.label}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+/* Helper: detect occupancy/revenue labels → green */
+function isGrowthLabel(label: string) {
+  return /occupanc|revenue|move-?in|admission|inquir|tour|resident/i.test(label);
 }
 
 /* ─────────── HERO ─────────── */
@@ -77,7 +65,7 @@ function Hero() {
             </div>
             <h1 className="text-balance text-5xl font-extrabold uppercase leading-[0.92] tracking-tight md:text-7xl">
               Helping senior care facilities increase{" "}
-              <span className="text-clinical">occupancy</span> and build family trust.
+              <span className="text-growth">occupancy</span> and build family trust.
             </h1>
             <p className="mt-8 max-w-2xl text-pretty text-lg text-ink/65 md:text-xl">
               We help nursing homes, assisted living communities, rehabilitation
@@ -101,15 +89,31 @@ function Hero() {
                 Operator Index · TTM
               </span>
               <ul className="divide-y divide-rule">
-                {heroMetrics.map((m) => (
+                {heroMetrics.map((m) => {
+                  const green = isGrowthLabel(m.label);
+                  return (
                   <li key={m.label} className="flex items-baseline justify-between py-3 first:pt-0 last:pb-0">
                     <span className="mono text-[10px] uppercase tracking-widest text-ink/55">{m.label}</span>
-                    <span className="text-xl font-extrabold tracking-tighter text-ink">{m.value}</span>
+                    <span className={`text-xl font-extrabold tracking-tighter ${green ? "text-growth" : "text-ink"}`}>{m.value}</span>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </div>
           </aside>
+        </div>
+
+        {/* Facility credibility row — integrated, not a separate strip */}
+        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-rule pt-10 md:grid-cols-4">
+          {facilityStats.map((s) => {
+            const green = /revenue|resident|admit|occupanc/i.test(s.label);
+            return (
+              <div key={s.label} className="border-l-2 border-clinical pl-4">
+                <div className={`text-3xl font-extrabold tracking-tighter md:text-5xl ${green ? "text-growth" : "text-ink"}`}>{s.value}</div>
+                <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/55">{s.label}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -188,15 +192,16 @@ function ProblemSummary() {
           {coreProblemsHome.map((p, i) => (
             <article key={p.title} className="flex flex-col gap-4 bg-paper p-6">
               <div className="flex items-center justify-between">
-                <div className="flex size-11 items-center justify-center rounded-md bg-clinical/8 text-clinical">
+                <div className="flex size-11 items-center justify-center rounded-md bg-alert-soft text-alert">
                   <BrandIcon name={p.icon} className="size-6" />
                 </div>
-                <span className="mono text-[10px] uppercase tracking-widest text-clinical">
+                <span className="mono text-[10px] uppercase tracking-widest text-alert">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <h3 className="text-sm font-extrabold uppercase tracking-tight">{p.title}</h3>
               <p className="text-xs text-ink/60">{p.detail}</p>
+              <span className="mono mt-auto text-[10px] uppercase tracking-widest text-alert/80">⚠ Growth Blocker</span>
             </article>
           ))}
         </div>
@@ -227,7 +232,7 @@ function SolutionSection() {
             <div className="grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule">
               {solutionMetrics.slice(0, 4).map((m) => (
                 <div key={m.label} className="bg-paper p-4">
-                  <div className="text-2xl font-extrabold tracking-tighter text-clinical">{m.value}</div>
+                  <div className="text-2xl font-extrabold tracking-tighter text-growth">{m.value}</div>
                   <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{m.label}</div>
                 </div>
               ))}
@@ -299,16 +304,19 @@ function CaseStudiesPreview() {
               </span>
             </div>
             <h3 className="text-2xl font-extrabold uppercase leading-tight tracking-tight">
-              {cs.metrics[0].value} {cs.metrics[0].label}
+              <span className="text-growth">{cs.metrics[0].value}</span> {cs.metrics[0].label}
             </h3>
             <Sparkline trend={cs.trend} />
             <div className="grid grid-cols-3 gap-3 border-t border-rule pt-4">
-              {cs.metrics.slice(1, 4).map((m) => (
+              {cs.metrics.slice(1, 4).map((m) => {
+                const green = isGrowthLabel(m.label);
+                return (
                 <div key={m.label}>
-                  <div className="text-base font-extrabold text-ink">{m.value}</div>
+                  <div className={`text-base font-extrabold ${green ? "text-growth" : "text-ink"}`}>{m.value}</div>
                   <div className="mono text-[10px] uppercase tracking-widest text-ink/45">{m.label}</div>
                 </div>
-              ))}
+                );
+              })}
             </div>
             <p className="text-sm text-ink/60">{cs.summary}</p>
           </Link>
@@ -325,7 +333,7 @@ function Sparkline({ trend }: { trend: number[] }) {
   const step = w / (trend.length - 1);
   const points = trend.map((v, i) => `${i * step},${h - ((v - min) / (max - min)) * h}`).join(" ");
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} className="h-12 w-full text-clinical">
+    <svg viewBox={`0 0 ${w} ${h}`} className="h-12 w-full text-growth">
       <polyline points={points} fill="none" stroke="currentColor" strokeWidth="2.5" />
     </svg>
   );
@@ -371,7 +379,7 @@ function IndustriesSection() {
         <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-4">
           {industryTrustStrip.map((t) => (
             <div key={t.label} className="bg-paper p-5 text-center">
-              <div className="text-2xl font-extrabold tracking-tight text-clinical md:text-3xl">{t.value}</div>
+              <div className="text-2xl font-extrabold tracking-tight text-growth md:text-3xl">{t.value}</div>
               <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{t.label}</div>
             </div>
           ))}
@@ -381,36 +389,84 @@ function IndustriesSection() {
   );
 }
 
-/* ─────────── TRUSTED BY ─────────── */
+/* ─────────── WHY OCCUPIACARE — redesigned ─────────── */
+const whyCards = [
+  { n: "01", title: "Predictable Admissions", detail: "Generate a consistent pipeline of qualified family inquiries instead of relying solely on referrals and seasonal demand." },
+  { n: "02", title: "Faster Family Decisions", detail: "Reduce response times and nurture inquiries through every stage of the family decision journey." },
+  { n: "03", title: "Higher Occupancy", detail: "Turn more tours into move-ins with systems designed specifically for senior care operators." },
+  { n: "04", title: "Measurable Revenue Impact", detail: "Track every inquiry, tour, admission, and occupancy gain with complete visibility into ROI." },
+];
+const whyMetrics = [
+  { value: "+38%", label: "Average Occupancy Lift" },
+  { value: "231%", label: "Average Inquiry Growth" },
+  { value: "184%", label: "More Tours Booked" },
+  { value: "$10M+", label: "Revenue Impact Influenced" },
+];
+
 function TrustedBy() {
   return (
-    <section className="bg-bone py-20">
+    <section className="bg-bone py-24 md:py-32">
       <div className="container-page">
-        <span className="mono mb-4 block text-center text-[10px] uppercase tracking-widest text-ink/40">
-          (05) Built for Healthcare Credibility
-        </span>
-        <h2 className="mx-auto mb-10 max-w-2xl text-balance text-center text-2xl font-extrabold uppercase tracking-tight md:text-3xl">
-          Trusted by healthcare and senior-care operators.
-        </h2>
+        <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
+          <span className="mono mb-6 block text-[10px] uppercase tracking-[0.25em] text-ink/40">
+            (05) Why OccupiaCare
+          </span>
+          <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
+            Built for <span className="text-growth">occupancy growth</span>.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-ink/65 md:text-lg">
+            Unlike general marketing agencies, OccupiaCare focuses on one
+            outcome: helping senior care communities generate more qualified
+            inquiries, book more tours, and increase move-ins.
+          </p>
+        </div>
 
-        <div className="mb-12 grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-3">
-          {trustPillars.map((p) => (
-            <div key={p.code} className="flex flex-col gap-3 bg-paper p-6 text-center">
-              <span className="mono text-[10px] uppercase tracking-widest text-clinical">{p.code}</span>
-              <h3 className="text-base font-extrabold uppercase tracking-tight">{p.name}</h3>
-              <p className="text-sm text-ink/60">{p.detail}</p>
-            </div>
+        <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2">
+          {whyCards.map((c) => (
+            <article
+              key={c.n}
+              className="group flex flex-col gap-5 bg-paper p-8 transition-colors hover:bg-white md:p-12"
+            >
+              <div className="flex items-baseline justify-between border-b border-rule pb-4">
+                <span className="mono text-[10px] uppercase tracking-[0.25em] text-clinical">
+                  Card · {c.n}
+                </span>
+                <span className="mono text-[10px] uppercase tracking-[0.25em] text-ink/35 transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </div>
+              <h3 className="text-2xl font-extrabold uppercase leading-tight tracking-tight md:text-3xl">
+                {c.title}
+              </h3>
+              <p className="max-w-md text-ink/65 md:text-lg">{c.detail}</p>
+            </article>
           ))}
         </div>
 
-        <p className="mono mb-8 text-center text-[10px] uppercase tracking-[0.3em] text-ink/40">
-          4.9 / 5 from 200+ facility partners
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-70">
-          {trustedBy.map((name) => (
-            <span key={name} className="text-lg font-extrabold uppercase tracking-tight text-ink/45">
-              {name}
-            </span>
+        {/* Bottom proof: logo row + metrics */}
+        <div className="mt-20 border-t border-rule pt-12 text-center">
+          <p className="mono mb-8 text-[10px] uppercase tracking-[0.3em] text-ink/45">
+            Trusted across senior care environments
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-70">
+            {trustedBy.map((name) => (
+              <span key={name} className="text-lg font-extrabold uppercase tracking-tight text-ink/45">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-4">
+          {whyMetrics.map((m) => (
+            <div key={m.label} className="bg-paper p-6 text-center md:p-8">
+              <div className="text-3xl font-extrabold tracking-tighter text-growth md:text-4xl">
+                {m.value}
+              </div>
+              <div className="mono mt-2 text-[10px] uppercase tracking-[0.2em] text-ink/55">
+                {m.label}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -431,7 +487,7 @@ function AboutSnapshot() {
           <div className="md:col-span-7">
             <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
               Helping senior care communities build{" "}
-              <span className="text-clinical">predictable occupancy growth</span>.
+              <span className="text-growth">predictable occupancy growth</span>.
             </h2>
             <div className="mt-6 space-y-4 text-lg text-ink/70">
               <p>
@@ -447,7 +503,7 @@ function AboutSnapshot() {
             <div className="mt-8 grid grid-cols-3 gap-px overflow-hidden border border-rule bg-rule">
               {aboutMicro.map((m) => (
                 <div key={m.label} className="bg-paper p-5">
-                  <div className="text-2xl font-extrabold tracking-tight text-clinical md:text-3xl">{m.value}</div>
+                  <div className="text-2xl font-extrabold tracking-tight text-growth md:text-3xl">{m.value}</div>
                   <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{m.label}</div>
                 </div>
               ))}

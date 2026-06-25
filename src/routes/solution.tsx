@@ -76,7 +76,7 @@ function SolutionPage() {
         <div className="container-page grid grid-cols-2 gap-x-8 gap-y-10 py-14 md:grid-cols-5">
           {solutionMetrics.map((m) => (
             <div key={m.label}>
-              <div className="text-4xl font-extrabold tracking-tighter text-ink md:text-5xl">{m.value}</div>
+              <div className="text-4xl font-extrabold tracking-tighter text-growth md:text-5xl">{m.value}</div>
               <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{m.label}</div>
             </div>
           ))}

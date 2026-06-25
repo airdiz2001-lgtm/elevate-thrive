@@ -17,6 +17,10 @@
   --color-ink: var(--ink);
   --color-clinical: var(--clinical);
   --color-clinical-deep: var(--clinical-deep);
+  --color-growth: var(--growth);
+  --color-growth-soft: var(--growth-soft);
+  --color-alert: var(--alert);
+  --color-alert-soft: var(--alert-soft);
   --color-accent: var(--accent);
   --color-bone: var(--bone);
   --color-rule: var(--rule);
@@ -52,6 +56,10 @@
   --clinical-deep: oklch(0.32 0.09 250);
   --accent: oklch(0.62 0.16 45);           /* warm terracotta accent */
   --rule: oklch(0.21 0.03 250 / 0.10);
+  --growth: oklch(0.62 0.16 150);          /* light green — occupancy & revenue */
+  --growth-soft: oklch(0.92 0.08 150);
+  --alert: oklch(0.58 0.22 27);            /* red — problems on white */
+  --alert-soft: oklch(0.95 0.05 27);
 
   /* Shadcn mapping */
   --background: var(--paper);
