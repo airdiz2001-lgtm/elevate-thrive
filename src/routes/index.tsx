@@ -232,7 +232,7 @@ function SolutionSection() {
             <div className="grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule">
               {solutionMetrics.slice(0, 4).map((m) => (
                 <div key={m.label} className="bg-paper p-4">
-                  <div className="text-2xl font-extrabold tracking-tighter text-clinical">{m.value}</div>
+                  <div className="text-2xl font-extrabold tracking-tighter text-growth">{m.value}</div>
                   <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{m.label}</div>
                 </div>
               ))}
