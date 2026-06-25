@@ -379,7 +379,7 @@ function IndustriesSection() {
         <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-4">
           {industryTrustStrip.map((t) => (
             <div key={t.label} className="bg-paper p-5 text-center">
-              <div className="text-2xl font-extrabold tracking-tight text-clinical md:text-3xl">{t.value}</div>
+              <div className="text-2xl font-extrabold tracking-tight text-growth md:text-3xl">{t.value}</div>
               <div className="mono mt-1 text-[10px] uppercase tracking-widest text-ink/50">{t.label}</div>
             </div>
           ))}
