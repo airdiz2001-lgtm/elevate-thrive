@@ -259,7 +259,7 @@ function CaseDetail() {
           <div className="mb-10 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-5">
             {cs.resultsDetail.map((r) => (
               <div key={r.label} className="bg-paper p-6">
-                <div className="text-3xl font-extrabold tracking-tighter text-clinical md:text-4xl">{r.value}</div>
+                <div className="text-3xl font-extrabold tracking-tighter text-growth md:text-4xl">{r.value}</div>
                 <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{r.label}</div>
               </div>
             ))}
