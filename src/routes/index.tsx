@@ -389,36 +389,84 @@ function IndustriesSection() {
   );
 }
 
-/* ─────────── TRUSTED BY ─────────── */
+/* ─────────── WHY OCCUPIACARE — redesigned ─────────── */
+const whyCards = [
+  { n: "01", title: "Predictable Admissions", detail: "Generate a consistent pipeline of qualified family inquiries instead of relying solely on referrals and seasonal demand." },
+  { n: "02", title: "Faster Family Decisions", detail: "Reduce response times and nurture inquiries through every stage of the family decision journey." },
+  { n: "03", title: "Higher Occupancy", detail: "Turn more tours into move-ins with systems designed specifically for senior care operators." },
+  { n: "04", title: "Measurable Revenue Impact", detail: "Track every inquiry, tour, admission, and occupancy gain with complete visibility into ROI." },
+];
+const whyMetrics = [
+  { value: "+38%", label: "Average Occupancy Lift" },
+  { value: "231%", label: "Average Inquiry Growth" },
+  { value: "184%", label: "More Tours Booked" },
+  { value: "$10M+", label: "Revenue Impact Influenced" },
+];
+
 function TrustedBy() {
   return (
-    <section className="bg-bone py-20">
+    <section className="bg-bone py-24 md:py-32">
       <div className="container-page">
-        <span className="mono mb-4 block text-center text-[10px] uppercase tracking-widest text-ink/40">
-          (05) Built for Healthcare Credibility
-        </span>
-        <h2 className="mx-auto mb-10 max-w-2xl text-balance text-center text-2xl font-extrabold uppercase tracking-tight md:text-3xl">
-          Trusted by healthcare and senior-care operators.
-        </h2>
+        <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
+          <span className="mono mb-6 block text-[10px] uppercase tracking-[0.25em] text-ink/40">
+            (05) Why OccupiaCare
+          </span>
+          <h2 className="text-balance text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
+            Built for <span className="text-growth">occupancy growth</span>.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-ink/65 md:text-lg">
+            Unlike general marketing agencies, OccupiaCare focuses on one
+            outcome: helping senior care communities generate more qualified
+            inquiries, book more tours, and increase move-ins.
+          </p>
+        </div>
 
-        <div className="mb-12 grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-3">
-          {trustPillars.map((p) => (
-            <div key={p.code} className="flex flex-col gap-3 bg-paper p-6 text-center">
-              <span className="mono text-[10px] uppercase tracking-widest text-clinical">{p.code}</span>
-              <h3 className="text-base font-extrabold uppercase tracking-tight">{p.name}</h3>
-              <p className="text-sm text-ink/60">{p.detail}</p>
-            </div>
+        <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-2">
+          {whyCards.map((c) => (
+            <article
+              key={c.n}
+              className="group flex flex-col gap-5 bg-paper p-8 transition-colors hover:bg-white md:p-12"
+            >
+              <div className="flex items-baseline justify-between border-b border-rule pb-4">
+                <span className="mono text-[10px] uppercase tracking-[0.25em] text-clinical">
+                  Card · {c.n}
+                </span>
+                <span className="mono text-[10px] uppercase tracking-[0.25em] text-ink/35 transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </div>
+              <h3 className="text-2xl font-extrabold uppercase leading-tight tracking-tight md:text-3xl">
+                {c.title}
+              </h3>
+              <p className="max-w-md text-ink/65 md:text-lg">{c.detail}</p>
+            </article>
           ))}
         </div>
 
-        <p className="mono mb-8 text-center text-[10px] uppercase tracking-[0.3em] text-ink/40">
-          4.9 / 5 from 200+ facility partners
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-70">
-          {trustedBy.map((name) => (
-            <span key={name} className="text-lg font-extrabold uppercase tracking-tight text-ink/45">
-              {name}
-            </span>
+        {/* Bottom proof: logo row + metrics */}
+        <div className="mt-20 border-t border-rule pt-12 text-center">
+          <p className="mono mb-8 text-[10px] uppercase tracking-[0.3em] text-ink/45">
+            Trusted across senior care environments
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6 opacity-70">
+            {trustedBy.map((name) => (
+              <span key={name} className="text-lg font-extrabold uppercase tracking-tight text-ink/45">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden border border-rule bg-rule md:grid-cols-4">
+          {whyMetrics.map((m) => (
+            <div key={m.label} className="bg-paper p-6 text-center md:p-8">
+              <div className="text-3xl font-extrabold tracking-tighter text-growth md:text-4xl">
+                {m.value}
+              </div>
+              <div className="mono mt-2 text-[10px] uppercase tracking-[0.2em] text-ink/55">
+                {m.label}
+              </div>
+            </div>
           ))}
         </div>
       </div>
