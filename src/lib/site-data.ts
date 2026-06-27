@@ -357,9 +357,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "rehab-skilled-nursing", code: "CS/03",
     client: "Skilled Nursing & Rehabilitation Center", vertical: "Rehabilitation", region: "USA",
-    headline: "312 Qualified Inquiries in 6 Months",
+    headline: "How a Rehabilitation Center Generated 312 Qualified Inquiries in 6 Months",
     summary: "A skilled nursing center diversified beyond hospital referrals into a measurable demand engine.",
-    hero: casePathway,
+    hero: casePathway, timeframe: "6 Months",
     profile: [
       "A skilled nursing and rehabilitation center relied almost entirely on hospital referrals.",
       "Leadership wanted to diversify admissions sources and reduce dependency on referral networks.",
