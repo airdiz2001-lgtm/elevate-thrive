@@ -280,6 +280,23 @@ function CaseDetail() {
           ))}
         </ul>
 
+        {cs.operationalImpact && (
+          <div className="mt-10 border border-rule bg-bone p-6 md:p-8">
+            <div className="mono mb-4 text-[10px] uppercase tracking-widest text-clinical">
+              {cs.operationalImpact.title}
+            </div>
+            <p className="mb-5 text-ink/70">Management gained complete visibility into:</p>
+            <ul className="grid gap-2 md:grid-cols-2">
+              {cs.operationalImpact.items.map((it) => (
+                <li key={it} className="flex items-center gap-3 text-ink/85">
+                  <span className="size-1.5 rounded-full bg-clinical" />
+                  <span className="font-semibold">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {/* Funnel */}
         <div className="mt-10 grid grid-cols-4 gap-2">
           {["Ads", "Inquiry", "Tour", "Move-in"].map((s, i) => (
