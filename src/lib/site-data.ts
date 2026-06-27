@@ -352,7 +352,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "Additional annualized revenue exceeded $950,000 with a substantially shorter family decision cycle.",
     revenueImpact: "$950K+ additional annualized revenue",
-    testimonial: { quote: "Families were finally finding us online, and our team had the systems needed to convert inquiries into move-ins." },
+    testimonial: { quote: "Families were finally finding us online, and our team had the systems needed to convert inquiries into move-ins.", attribution: "Director of Admissions, Memory Care Community" },
   },
   {
     slug: "rehab-skilled-nursing", code: "CS/03",
