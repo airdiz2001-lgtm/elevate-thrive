@@ -395,9 +395,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "sydney-assisted-living", code: "CS/04",
     client: "Sydney Assisted Living Community", vertical: "Assisted Living", region: "Australia",
-    headline: "From 69% to 91% Occupancy in 9 Months",
+    headline: "How a Sydney-Based Assisted Living Community Increased Occupancy from 69% to 91% in 9 Months",
     summary: "A 140-bed Sydney community broke its dependency on referral agencies with a full-funnel digital engine.",
-    hero: caseMeridian, beds: "140 beds",
+    hero: caseMeridian, beds: "140 beds", timeframe: "9 Months",
     profile: [
       "A 140-bed assisted living community located in Sydney, Australia was facing stagnating occupancy despite strong care standards and positive word-of-mouth.",
       "The facility had minimal digital marketing presence and relied heavily on aged-care referral networks and offline partnerships.",
