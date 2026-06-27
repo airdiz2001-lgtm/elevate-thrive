@@ -274,9 +274,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "midwest-assisted-living", code: "CS/01",
     client: "Midwest Assisted Living Community", vertical: "Assisted Living", region: "USA",
-    headline: "From 74% to 93% Occupancy in 8 Months",
+    headline: "How an Assisted Living Community Increased Occupancy from 74% to 93% in 8 Months",
     summary: "A 120-bed Midwest community rebuilt its admissions pipeline and added $1.1M+ in annualized revenue.",
-    hero: caseMeridian, beds: "120 beds",
+    hero: caseMeridian, beds: "120 beds", timeframe: "8 Months",
     profile: [
       "A 120-bed assisted living community located in the Midwest United States, struggling with declining occupancy despite strong reputation and excellent resident care.",
       "The facility relied heavily on referrals, local relationships, and traditional marketing. As competition increased, resident inquiries became inconsistent and occupancy dropped.",
