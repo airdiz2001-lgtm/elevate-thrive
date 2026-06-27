@@ -435,7 +435,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The facility shifted from referral dependency to a stable digital acquisition system generating consistent monthly admissions.",
     revenueImpact: "$1.2M+ AUD additional annual revenue",
-    testimonial: { quote: "We finally stopped relying on referrals. Families now come to us already informed and ready to book tours." },
+    testimonial: { quote: "We finally stopped relying on referrals. Families now come to us already informed and ready to book tours.", attribution: "General Manager, Sydney Assisted Living Community" },
   },
   {
     slug: "singapore-memory-care", code: "CS/05",
