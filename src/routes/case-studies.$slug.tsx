@@ -133,6 +133,11 @@ function CaseDetail() {
             {cs.beds && (
               <div className="mono mt-1 text-[11px] uppercase tracking-widest text-ink/40">{cs.beds}</div>
             )}
+            {cs.timeframe && (
+              <div className="mono mt-4 inline-block border border-clinical px-3 py-1.5 text-[10px] uppercase tracking-widest text-clinical">
+                Engagement · {cs.timeframe}
+              </div>
+            )}
           </div>
           <div className="md:col-span-9">
             <h1 className="text-balance text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-6xl">
