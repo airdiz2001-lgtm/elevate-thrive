@@ -480,7 +480,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The facility became one of the most digitally visible memory care providers in its region, with a predictable monthly admissions pipeline.",
     revenueImpact: "$980K+ SGD annual revenue impact",
-    testimonial: { quote: "Families now understand us before they even visit. That changed everything about how we convert inquiries." },
+    testimonial: { quote: "Families now understand us before they even visit. That changed everything about how we convert inquiries.", attribution: "Managing Director, Premium Memory Care Facility (Singapore)" },
   },
 ];
 
