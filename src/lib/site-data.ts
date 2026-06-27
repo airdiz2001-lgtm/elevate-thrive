@@ -314,7 +314,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The increase in occupancy generated an estimated additional annualized revenue of over $1.1 million while significantly reducing reliance on referrals.",
     revenueImpact: "$1.1M+ additional annualized revenue",
-    testimonial: { quote: "OccupiaCare helped us build a predictable admissions pipeline. Instead of waiting for referrals, we now consistently generate qualified inquiries every month." },
+    testimonial: { quote: "OccupiaCare helped us build a predictable admissions pipeline. Instead of waiting for referrals, we now consistently generate qualified inquiries every month.", attribution: "Executive Director, Midwest Assisted Living Community" },
   },
   {
     slug: "memory-care-usa", code: "CS/02",
