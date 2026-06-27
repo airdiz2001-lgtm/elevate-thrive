@@ -319,9 +319,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "memory-care-usa", code: "CS/02",
     client: "Memory Care Community", vertical: "Memory Care", region: "USA",
-    headline: "+58% Monthly Move-Ins in 6 Months",
+    headline: "How a Memory Care Facility Increased Monthly Move-Ins by 58%",
     summary: "An 80-unit memory care facility shortened family decision cycles with education + automated nurture.",
-    hero: caseSolstice, beds: "80 units",
+    hero: caseSolstice, beds: "80 units", timeframe: "6 Months",
     profile: [
       "An 80-unit memory care community facing growing competition from nearby facilities.",
       "Families often delayed decisions because of long consideration periods and emotional decision-making processes.",
