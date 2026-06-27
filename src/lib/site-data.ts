@@ -254,6 +254,7 @@ export type CaseStudy = {
   slug: string; code: string; client: string; vertical: string; region: string;
   headline: string; summary: string; hero: string;
   beds?: string;
+  timeframe?: string;
   profile: string[];
   metrics: { label: string; value: string }[];
   micro: { occBefore: string; occAfter: string; cprDelta: string; inquiryDelta: string };
@@ -263,6 +264,7 @@ export type CaseStudy = {
   strategy: { title: string; items: string[] }[];
   results: string[];
   resultsDetail?: { value: string; label: string }[];
+  operationalImpact?: { title: string; items: string[] };
   businessImpact?: string;
   revenueImpact: string;
   testimonial: { quote: string; attribution?: string };
