@@ -387,9 +387,10 @@ export const caseStudies: CaseStudy[] = [
       { value: "+46%", label: "Admissions" },
       { value: "−29%", label: "Cost / Inquiry" },
     ],
+    operationalImpact: { title: "Operational Impact", items: ["Inquiry sources", "Tour bookings", "Conversion rates", "Occupancy growth"] },
     businessImpact: "Management gained complete visibility into inquiry sources, tour bookings, conversion rates, and occupancy growth — and revenue increased substantially.",
     revenueImpact: "Material revenue lift across the network",
-    testimonial: { quote: "For the first time, we could clearly see where admissions were coming from and what was driving occupancy." },
+    testimonial: { quote: "For the first time, we could clearly see where admissions were coming from and what was driving occupancy.", attribution: "Administrator, Skilled Nursing & Rehabilitation Center" },
   },
   {
     slug: "sydney-assisted-living", code: "CS/04",
