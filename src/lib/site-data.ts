@@ -254,6 +254,7 @@ export type CaseStudy = {
   slug: string; code: string; client: string; vertical: string; region: string;
   headline: string; summary: string; hero: string;
   beds?: string;
+  timeframe?: string;
   profile: string[];
   metrics: { label: string; value: string }[];
   micro: { occBefore: string; occAfter: string; cprDelta: string; inquiryDelta: string };
@@ -263,6 +264,7 @@ export type CaseStudy = {
   strategy: { title: string; items: string[] }[];
   results: string[];
   resultsDetail?: { value: string; label: string }[];
+  operationalImpact?: { title: string; items: string[] };
   businessImpact?: string;
   revenueImpact: string;
   testimonial: { quote: string; attribution?: string };
@@ -272,9 +274,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "midwest-assisted-living", code: "CS/01",
     client: "Midwest Assisted Living Community", vertical: "Assisted Living", region: "USA",
-    headline: "From 74% to 93% Occupancy in 8 Months",
+    headline: "How an Assisted Living Community Increased Occupancy from 74% to 93% in 8 Months",
     summary: "A 120-bed Midwest community rebuilt its admissions pipeline and added $1.1M+ in annualized revenue.",
-    hero: caseMeridian, beds: "120 beds",
+    hero: caseMeridian, beds: "120 beds", timeframe: "8 Months",
     profile: [
       "A 120-bed assisted living community located in the Midwest United States, struggling with declining occupancy despite strong reputation and excellent resident care.",
       "The facility relied heavily on referrals, local relationships, and traditional marketing. As competition increased, resident inquiries became inconsistent and occupancy dropped.",
@@ -312,14 +314,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The increase in occupancy generated an estimated additional annualized revenue of over $1.1 million while significantly reducing reliance on referrals.",
     revenueImpact: "$1.1M+ additional annualized revenue",
-    testimonial: { quote: "OccupiaCare helped us build a predictable admissions pipeline. Instead of waiting for referrals, we now consistently generate qualified inquiries every month." },
+    testimonial: { quote: "OccupiaCare helped us build a predictable admissions pipeline. Instead of waiting for referrals, we now consistently generate qualified inquiries every month.", attribution: "Executive Director, Midwest Assisted Living Community" },
   },
   {
     slug: "memory-care-usa", code: "CS/02",
     client: "Memory Care Community", vertical: "Memory Care", region: "USA",
-    headline: "+58% Monthly Move-Ins in 6 Months",
+    headline: "How a Memory Care Facility Increased Monthly Move-Ins by 58%",
     summary: "An 80-unit memory care facility shortened family decision cycles with education + automated nurture.",
-    hero: caseSolstice, beds: "80 units",
+    hero: caseSolstice, beds: "80 units", timeframe: "6 Months",
     profile: [
       "An 80-unit memory care community facing growing competition from nearby facilities.",
       "Families often delayed decisions because of long consideration periods and emotional decision-making processes.",
@@ -350,14 +352,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "Additional annualized revenue exceeded $950,000 with a substantially shorter family decision cycle.",
     revenueImpact: "$950K+ additional annualized revenue",
-    testimonial: { quote: "Families were finally finding us online, and our team had the systems needed to convert inquiries into move-ins." },
+    testimonial: { quote: "Families were finally finding us online, and our team had the systems needed to convert inquiries into move-ins.", attribution: "Director of Admissions, Memory Care Community" },
   },
   {
     slug: "rehab-skilled-nursing", code: "CS/03",
     client: "Skilled Nursing & Rehabilitation Center", vertical: "Rehabilitation", region: "USA",
-    headline: "312 Qualified Inquiries in 6 Months",
+    headline: "How a Rehabilitation Center Generated 312 Qualified Inquiries in 6 Months",
     summary: "A skilled nursing center diversified beyond hospital referrals into a measurable demand engine.",
-    hero: casePathway,
+    hero: casePathway, timeframe: "6 Months",
     profile: [
       "A skilled nursing and rehabilitation center relied almost entirely on hospital referrals.",
       "Leadership wanted to diversify admissions sources and reduce dependency on referral networks.",
@@ -385,16 +387,17 @@ export const caseStudies: CaseStudy[] = [
       { value: "+46%", label: "Admissions" },
       { value: "−29%", label: "Cost / Inquiry" },
     ],
+    operationalImpact: { title: "Operational Impact", items: ["Inquiry sources", "Tour bookings", "Conversion rates", "Occupancy growth"] },
     businessImpact: "Management gained complete visibility into inquiry sources, tour bookings, conversion rates, and occupancy growth — and revenue increased substantially.",
     revenueImpact: "Material revenue lift across the network",
-    testimonial: { quote: "For the first time, we could clearly see where admissions were coming from and what was driving occupancy." },
+    testimonial: { quote: "For the first time, we could clearly see where admissions were coming from and what was driving occupancy.", attribution: "Administrator, Skilled Nursing & Rehabilitation Center" },
   },
   {
     slug: "sydney-assisted-living", code: "CS/04",
     client: "Sydney Assisted Living Community", vertical: "Assisted Living", region: "Australia",
-    headline: "From 69% to 91% Occupancy in 9 Months",
+    headline: "How a Sydney-Based Assisted Living Community Increased Occupancy from 69% to 91% in 9 Months",
     summary: "A 140-bed Sydney community broke its dependency on referral agencies with a full-funnel digital engine.",
-    hero: caseMeridian, beds: "140 beds",
+    hero: caseMeridian, beds: "140 beds", timeframe: "9 Months",
     profile: [
       "A 140-bed assisted living community located in Sydney, Australia was facing stagnating occupancy despite strong care standards and positive word-of-mouth.",
       "The facility had minimal digital marketing presence and relied heavily on aged-care referral networks and offline partnerships.",
@@ -432,14 +435,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The facility shifted from referral dependency to a stable digital acquisition system generating consistent monthly admissions.",
     revenueImpact: "$1.2M+ AUD additional annual revenue",
-    testimonial: { quote: "We finally stopped relying on referrals. Families now come to us already informed and ready to book tours." },
+    testimonial: { quote: "We finally stopped relying on referrals. Families now come to us already informed and ready to book tours.", attribution: "General Manager, Sydney Assisted Living Community" },
   },
   {
     slug: "singapore-memory-care", code: "CS/05",
     client: "Premium Memory Care Facility", vertical: "Memory Care", region: "Singapore",
-    headline: "+64% Monthly Move-Ins in 7 Months",
+    headline: "How a Premium Memory Care Facility Increased Monthly Move-Ins by 64% in 7 Months",
     summary: "A premium 60-bed Singapore facility built digital trust and accelerated family decision-making.",
-    hero: caseSolstice, beds: "60 beds",
+    hero: caseSolstice, beds: "60 beds", timeframe: "7 Months",
     profile: [
       "A high-end 60-bed memory care facility in Singapore serving families dealing with Alzheimer's and dementia care needs.",
       "Despite premium services, the facility struggled with low awareness and long family decision cycles.",
@@ -477,7 +480,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     businessImpact: "The facility became one of the most digitally visible memory care providers in its region, with a predictable monthly admissions pipeline.",
     revenueImpact: "$980K+ SGD annual revenue impact",
-    testimonial: { quote: "Families now understand us before they even visit. That changed everything about how we convert inquiries." },
+    testimonial: { quote: "Families now understand us before they even visit. That changed everything about how we convert inquiries.", attribution: "Managing Director, Premium Memory Care Facility (Singapore)" },
   },
 ];
 

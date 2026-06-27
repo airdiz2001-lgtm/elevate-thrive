@@ -133,6 +133,11 @@ function CaseDetail() {
             {cs.beds && (
               <div className="mono mt-1 text-[11px] uppercase tracking-widest text-ink/40">{cs.beds}</div>
             )}
+            {cs.timeframe && (
+              <div className="mono mt-4 inline-block border border-clinical px-3 py-1.5 text-[10px] uppercase tracking-widest text-clinical">
+                Engagement · {cs.timeframe}
+              </div>
+            )}
           </div>
           <div className="md:col-span-9">
             <h1 className="text-balance text-4xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-6xl">
@@ -274,6 +279,23 @@ function CaseDetail() {
             </li>
           ))}
         </ul>
+
+        {cs.operationalImpact && (
+          <div className="mt-10 border border-rule bg-bone p-6 md:p-8">
+            <div className="mono mb-4 text-[10px] uppercase tracking-widest text-clinical">
+              {cs.operationalImpact.title}
+            </div>
+            <p className="mb-5 text-ink/70">Management gained complete visibility into:</p>
+            <ul className="grid gap-2 md:grid-cols-2">
+              {cs.operationalImpact.items.map((it) => (
+                <li key={it} className="flex items-center gap-3 text-ink/85">
+                  <span className="size-1.5 rounded-full bg-clinical" />
+                  <span className="font-semibold">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Funnel */}
         <div className="mt-10 grid grid-cols-4 gap-2">
