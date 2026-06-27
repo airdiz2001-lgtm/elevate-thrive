@@ -440,9 +440,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "singapore-memory-care", code: "CS/05",
     client: "Premium Memory Care Facility", vertical: "Memory Care", region: "Singapore",
-    headline: "+64% Monthly Move-Ins in 7 Months",
+    headline: "How a Premium Memory Care Facility Increased Monthly Move-Ins by 64% in 7 Months",
     summary: "A premium 60-bed Singapore facility built digital trust and accelerated family decision-making.",
-    hero: caseSolstice, beds: "60 beds",
+    hero: caseSolstice, beds: "60 beds", timeframe: "7 Months",
     profile: [
       "A high-end 60-bed memory care facility in Singapore serving families dealing with Alzheimer's and dementia care needs.",
       "Despite premium services, the facility struggled with low awareness and long family decision cycles.",
