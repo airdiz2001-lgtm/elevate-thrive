@@ -297,14 +297,19 @@ function CaseDetail() {
         </div>
       </section>
 
-      {/* Occupancy chart — front and center */}
+      {/* Before / After + Occupancy chart */}
       <section className="container-page py-20 md:py-24">
         <span className="mono mb-4 block text-[10px] uppercase tracking-widest text-ink/40">03 · Occupancy Before and After</span>
-        <h2 className="mb-2 max-w-2xl text-balance text-3xl font-extrabold uppercase tracking-tight md:text-4xl">
-          Occupancy growth after implementation.
+        <h2 className="mb-10 max-w-2xl text-balance text-3xl font-extrabold uppercase tracking-tight md:text-4xl">
+          From decline to predictable growth.
         </h2>
-        <p className="mb-10 text-ink/55">{cs.beds ? `${cs.beds} · ` : ""}Illustrative trend over the engagement.</p>
-        <TrendChart trend={cs.trend} />
+
+        <BeforeAfter before={cs.micro.occBefore} after={cs.micro.occAfter} label="Occupancy" />
+
+        <div className="mt-10">
+          <TrendChart trend={cs.trend} />
+        </div>
+
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
           <StatTile value={cs.micro.occBefore + " → " + cs.micro.occAfter} label="Occupancy" />
           <StatTile value={cs.micro.inquiryDelta} label="Inquiries" />
@@ -312,6 +317,7 @@ function CaseDetail() {
           <StatTile value={cs.revenueImpact.split(" ")[0]} label="Revenue Impact" />
         </div>
       </section>
+
 
       {/* Strategy */}
       <section className="border-y border-rule bg-white py-20 md:py-24">
