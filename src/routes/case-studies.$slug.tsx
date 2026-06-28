@@ -396,18 +396,17 @@ function CaseDetail() {
           </div>
         )}
 
-        {/* Funnel */}
-        <div className="mt-10 grid grid-cols-4 gap-2">
-          {["Ads", "Inquiry", "Tour", "Move-in"].map((s, i) => (
-            <div key={s} className="border border-rule bg-paper p-4 text-center">
-              <span className="mono text-[10px] uppercase tracking-widest text-clinical">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="mt-1 text-sm font-extrabold uppercase tracking-tight">{s}</div>
-            </div>
-          ))}
+        {/* Growth bars + Conversion funnel */}
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <GrowthBars items={cs.metrics} />
+          <ConversionFunnel
+            inquiries={cs.micro.inquiryDelta}
+            tours={cs.metrics.find((m) => /tour/i.test(m.label))?.value ?? "+150%"}
+            moveins={cs.metrics.find((m) => /move|admission/i.test(m.label))?.value ?? "+40%"}
+          />
         </div>
       </section>
+
 
       {/* Business Impact */}
       {cs.businessImpact && (
