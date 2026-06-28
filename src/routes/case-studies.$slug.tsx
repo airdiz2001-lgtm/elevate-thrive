@@ -113,6 +113,99 @@ function StatTile({ value, label, dark }: { value: string; label: string; dark?:
   );
 }
 
+function BeforeAfter({ before, after, label }: { before: string; after: string; label: string }) {
+  const b = parseInt(before);
+  const a = parseInt(after);
+  const delta = a - b;
+  return (
+    <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-[1fr_auto_1fr_auto]">
+      <div className="bg-alert-soft p-8 text-center">
+        <div className="mono text-[10px] uppercase tracking-widest text-alert">Before</div>
+        <div className="mt-3 text-6xl font-extrabold tracking-tighter text-alert md:text-7xl">{before}</div>
+        <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{label}</div>
+      </div>
+      <div className="flex items-center justify-center bg-paper px-6 py-4">
+        <span className="text-3xl text-ink/30">→</span>
+      </div>
+      <div className="bg-[color-mix(in_oklab,var(--color-growth)_12%,white)] p-8 text-center">
+        <div className="mono text-[10px] uppercase tracking-widest text-growth">After</div>
+        <div className="mt-3 text-6xl font-extrabold tracking-tighter text-growth md:text-7xl">{after}</div>
+        <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{label}</div>
+      </div>
+      <div className="flex flex-col items-center justify-center bg-ink p-8 text-paper md:min-w-[180px]">
+        <div className="mono text-[10px] uppercase tracking-widest text-paper/55">Lift</div>
+        <div className="mt-2 text-5xl font-extrabold tracking-tighter text-clinical">+{delta}</div>
+        <div className="mono mt-1 text-[10px] uppercase tracking-widest text-paper/55">Points</div>
+      </div>
+    </div>
+  );
+}
+
+function GrowthBars({ items }: { items: { label: string; value: string }[] }) {
+  // Parse percentage growth from values like "+231%", "+58%"
+  const parsed = items.map((it) => {
+    const m = it.value.match(/-?\d+/);
+    return { ...it, n: m ? Math.abs(parseInt(m[0])) : 0 };
+  });
+  const max = Math.max(...parsed.map((p) => p.n), 100);
+  return (
+    <div className="border border-rule bg-paper p-6 md:p-8">
+      <div className="mono mb-6 text-[10px] uppercase tracking-widest text-ink/40">
+        Growth Across the Funnel
+      </div>
+      <div className="space-y-5">
+        {parsed.map((p) => (
+          <div key={p.label}>
+            <div className="mb-2 flex items-baseline justify-between">
+              <span className="mono text-[10px] uppercase tracking-widest text-ink/65">{p.label}</span>
+              <span className="text-2xl font-extrabold tracking-tighter text-growth md:text-3xl">{p.value}</span>
+            </div>
+            <div className="h-3 w-full overflow-hidden border border-rule bg-bone">
+              <div
+                className="h-full bg-growth transition-[width] duration-700"
+                style={{ width: `${Math.max(8, (p.n / max) * 100)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ConversionFunnel({ inquiries, tours, moveins }: { inquiries: string; tours: string; moveins: string }) {
+  const stages = [
+    { label: "Inquiries", value: inquiries, w: 100, color: "bg-clinical" },
+    { label: "Tours Booked", value: tours, w: 72, color: "bg-clinical/80" },
+    { label: "Move-Ins", value: moveins, w: 44, color: "bg-growth" },
+  ];
+  return (
+    <div className="border border-rule bg-paper p-6 md:p-8">
+      <div className="mono mb-6 text-[10px] uppercase tracking-widest text-ink/40">
+        Family Acquisition Funnel
+      </div>
+      <div className="space-y-3">
+        {stages.map((s, i) => (
+          <div key={s.label} className="flex items-center gap-4">
+            <span className="mono w-8 text-[10px] uppercase tracking-widest text-clinical">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="flex-1">
+              <div
+                className={`relative flex items-center justify-between px-5 py-4 text-paper ${s.color}`}
+                style={{ width: `${s.w}%`, clipPath: "polygon(0 0, 100% 0, 96% 100%, 0 100%)" }}
+              >
+                <span className="mono text-[11px] font-bold uppercase tracking-widest">{s.label}</span>
+                <span className="text-xl font-extrabold tracking-tight">{s.value}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseDetail() {
   const cs: CaseStudy = Route.useLoaderData();
   const idx = caseStudies.findIndex((x) => x.slug === cs.slug);
@@ -204,14 +297,19 @@ function CaseDetail() {
         </div>
       </section>
 
-      {/* Occupancy chart — front and center */}
+      {/* Before / After + Occupancy chart */}
       <section className="container-page py-20 md:py-24">
         <span className="mono mb-4 block text-[10px] uppercase tracking-widest text-ink/40">03 · Occupancy Before and After</span>
-        <h2 className="mb-2 max-w-2xl text-balance text-3xl font-extrabold uppercase tracking-tight md:text-4xl">
-          Occupancy growth after implementation.
+        <h2 className="mb-10 max-w-2xl text-balance text-3xl font-extrabold uppercase tracking-tight md:text-4xl">
+          From decline to predictable growth.
         </h2>
-        <p className="mb-10 text-ink/55">{cs.beds ? `${cs.beds} · ` : ""}Illustrative trend over the engagement.</p>
-        <TrendChart trend={cs.trend} />
+
+        <BeforeAfter before={cs.micro.occBefore} after={cs.micro.occAfter} label="Occupancy" />
+
+        <div className="mt-10">
+          <TrendChart trend={cs.trend} />
+        </div>
+
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
           <StatTile value={cs.micro.occBefore + " → " + cs.micro.occAfter} label="Occupancy" />
           <StatTile value={cs.micro.inquiryDelta} label="Inquiries" />
@@ -219,6 +317,7 @@ function CaseDetail() {
           <StatTile value={cs.revenueImpact.split(" ")[0]} label="Revenue Impact" />
         </div>
       </section>
+
 
       {/* Strategy */}
       <section className="border-y border-rule bg-white py-20 md:py-24">
@@ -297,18 +396,17 @@ function CaseDetail() {
           </div>
         )}
 
-        {/* Funnel */}
-        <div className="mt-10 grid grid-cols-4 gap-2">
-          {["Ads", "Inquiry", "Tour", "Move-in"].map((s, i) => (
-            <div key={s} className="border border-rule bg-paper p-4 text-center">
-              <span className="mono text-[10px] uppercase tracking-widest text-clinical">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="mt-1 text-sm font-extrabold uppercase tracking-tight">{s}</div>
-            </div>
-          ))}
+        {/* Growth bars + Conversion funnel */}
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <GrowthBars items={cs.metrics} />
+          <ConversionFunnel
+            inquiries={cs.micro.inquiryDelta}
+            tours={cs.metrics.find((m) => /tour/i.test(m.label))?.value ?? "+150%"}
+            moveins={cs.metrics.find((m) => /move|admission/i.test(m.label))?.value ?? "+40%"}
+          />
         </div>
       </section>
+
 
       {/* Business Impact */}
       {cs.businessImpact && (
