@@ -113,6 +113,99 @@ function StatTile({ value, label, dark }: { value: string; label: string; dark?:
   );
 }
 
+function BeforeAfter({ before, after, label }: { before: string; after: string; label: string }) {
+  const b = parseInt(before);
+  const a = parseInt(after);
+  const delta = a - b;
+  return (
+    <div className="grid gap-px overflow-hidden border border-rule bg-rule md:grid-cols-[1fr_auto_1fr_auto]">
+      <div className="bg-alert-soft p-8 text-center">
+        <div className="mono text-[10px] uppercase tracking-widest text-alert">Before</div>
+        <div className="mt-3 text-6xl font-extrabold tracking-tighter text-alert md:text-7xl">{before}</div>
+        <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{label}</div>
+      </div>
+      <div className="flex items-center justify-center bg-paper px-6 py-4">
+        <span className="text-3xl text-ink/30">→</span>
+      </div>
+      <div className="bg-[color-mix(in_oklab,var(--color-growth)_12%,white)] p-8 text-center">
+        <div className="mono text-[10px] uppercase tracking-widest text-growth">After</div>
+        <div className="mt-3 text-6xl font-extrabold tracking-tighter text-growth md:text-7xl">{after}</div>
+        <div className="mono mt-2 text-[10px] uppercase tracking-widest text-ink/45">{label}</div>
+      </div>
+      <div className="flex flex-col items-center justify-center bg-ink p-8 text-paper md:min-w-[180px]">
+        <div className="mono text-[10px] uppercase tracking-widest text-paper/55">Lift</div>
+        <div className="mt-2 text-5xl font-extrabold tracking-tighter text-clinical">+{delta}</div>
+        <div className="mono mt-1 text-[10px] uppercase tracking-widest text-paper/55">Points</div>
+      </div>
+    </div>
+  );
+}
+
+function GrowthBars({ items }: { items: { label: string; value: string }[] }) {
+  // Parse percentage growth from values like "+231%", "+58%"
+  const parsed = items.map((it) => {
+    const m = it.value.match(/-?\d+/);
+    return { ...it, n: m ? Math.abs(parseInt(m[0])) : 0 };
+  });
+  const max = Math.max(...parsed.map((p) => p.n), 100);
+  return (
+    <div className="border border-rule bg-paper p-6 md:p-8">
+      <div className="mono mb-6 text-[10px] uppercase tracking-widest text-ink/40">
+        Growth Across the Funnel
+      </div>
+      <div className="space-y-5">
+        {parsed.map((p) => (
+          <div key={p.label}>
+            <div className="mb-2 flex items-baseline justify-between">
+              <span className="mono text-[10px] uppercase tracking-widest text-ink/65">{p.label}</span>
+              <span className="text-2xl font-extrabold tracking-tighter text-growth md:text-3xl">{p.value}</span>
+            </div>
+            <div className="h-3 w-full overflow-hidden border border-rule bg-bone">
+              <div
+                className="h-full bg-growth transition-[width] duration-700"
+                style={{ width: `${Math.max(8, (p.n / max) * 100)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ConversionFunnel({ inquiries, tours, moveins }: { inquiries: string; tours: string; moveins: string }) {
+  const stages = [
+    { label: "Inquiries", value: inquiries, w: 100, color: "bg-clinical" },
+    { label: "Tours Booked", value: tours, w: 72, color: "bg-clinical/80" },
+    { label: "Move-Ins", value: moveins, w: 44, color: "bg-growth" },
+  ];
+  return (
+    <div className="border border-rule bg-paper p-6 md:p-8">
+      <div className="mono mb-6 text-[10px] uppercase tracking-widest text-ink/40">
+        Family Acquisition Funnel
+      </div>
+      <div className="space-y-3">
+        {stages.map((s, i) => (
+          <div key={s.label} className="flex items-center gap-4">
+            <span className="mono w-8 text-[10px] uppercase tracking-widest text-clinical">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="flex-1">
+              <div
+                className={`relative flex items-center justify-between px-5 py-4 text-paper ${s.color}`}
+                style={{ width: `${s.w}%`, clipPath: "polygon(0 0, 100% 0, 96% 100%, 0 100%)" }}
+              >
+                <span className="mono text-[11px] font-bold uppercase tracking-widest">{s.label}</span>
+                <span className="text-xl font-extrabold tracking-tight">{s.value}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseDetail() {
   const cs: CaseStudy = Route.useLoaderData();
   const idx = caseStudies.findIndex((x) => x.slug === cs.slug);
