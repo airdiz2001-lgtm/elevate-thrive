@@ -39,9 +39,10 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetail() {
-  const s = Route.useLoaderData()!;
-  const idx = services.findIndex((x) => x.slug === s.slug);
-  const next = services[(idx + 1) % services.length];
+  const { slug } = Route.useParams();
+  const idx = services.findIndex((x) => x.slug === slug);
+  const s = services[idx]!;
+  const next = services[(idx + 1) % services.length]!;
 
   return (
     <>
