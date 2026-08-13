@@ -30,7 +30,88 @@ const RESOURCES = [
       "A 32-page operator playbook on rebuilding admissions infrastructure, with the exact funnel that has driven +18–24% occupancy across client facilities.",
     cta: "Get the playbook",
   },
+  {
+    code: "R/03",
+    icon: "bed" as const,
+    title: "Facility ROI Calculator",
+    detail:
+      "Calculate the revenue impact of vacant beds and identify potential marketing, staffing, and investment opportunities to improve occupancy and strengthen your competitive position.",
+    cta: "Get the calculator",
+  },
+  {
+    code: "R/04",
+    icon: "trendUp" as const,
+    title: "SERP Volatility Tool",
+    detail:
+      "Analyze Google search volatility to identify SEO opportunities, weaknesses, and potential market openings before investing heavily in organic search strategies.",
+    cta: "Get the tool",
+  },
+  {
+    code: "R/05",
+    icon: "search" as const,
+    title: "SEO Strategy Checklist",
+    detail:
+      "A practical senior living SEO framework covering keyword research, competitor analysis, backlink opportunities, and the essential steps for building stronger organic visibility.",
+    cta: "Get the checklist",
+  },
+  {
+    code: "R/06",
+    icon: "mega" as const,
+    title: "Paid Advertising Budget Allocator",
+    detail:
+      "Determine how to allocate your monthly advertising budget across campaigns and channels, helping maximize lead generation while reducing unnecessary advertising waste.",
+    cta: "Get the allocator",
+  },
+  {
+    code: "R/07",
+    icon: "share" as const,
+    title: "Content Strategy & Link Building Checklist",
+    detail:
+      "Develop a local content and link-building strategy designed to improve search visibility, attract qualified local traffic, and strengthen your facility's organic presence.",
+    cta: "Get the checklist",
+  },
+  {
+    code: "R/08",
+    icon: "shield" as const,
+    title: "Reputation Management Playbook",
+    detail:
+      "A practical playbook for managing your senior living facility's reputation, responding to feedback strategically, and building greater trust with prospective residents and families.",
+    cta: "Get the playbook",
+  },
+  {
+    code: "R/09",
+    icon: "star" as const,
+    title: "Review Response Template Library",
+    detail:
+      "Access 50+ ready-to-use templates for negative reviews, complaints, fake reviews, and positive feedback, helping your team respond professionally and confidently.",
+    cta: "Get the templates",
+  },
+  {
+    code: "R/10",
+    icon: "pin" as const,
+    title: "Local SEO & GBP Optimization Checklist",
+    detail:
+      "Optimize your Google Business Profile and local SEO foundation to improve visibility across Google Search and Maps when families search for senior living options.",
+    cta: "Get the checklist",
+  },
+  {
+    code: "R/11",
+    icon: "funnel" as const,
+    title: "Increase Tours To Move-Ins — Sales Process",
+    detail:
+      "Improve tour-to-move-in conversion with a structured sales process covering follow-up, objections, family concerns, and the key steps required to turn qualified prospects into admissions.",
+    cta: "Get the process",
+  },
+  {
+    code: "R/12",
+    icon: "stethoscope" as const,
+    title: "Referral Network Prospecting Checklist",
+    detail:
+      "Identify valuable referral sources, build stronger professional relationships, and create a systematic outreach process designed to generate more consistent referrals and potential move-ins.",
+    cta: "Get the checklist",
+  },
 ];
+
 
 function ResourcesPage() {
   return (
